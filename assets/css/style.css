@@ -4515,6 +4515,11 @@ iframe {
   }
 }
 
+.hero__one{
+  background-image: url(https://res.cloudinary.com/df2fe2yzk/image/upload/v1734626676/Hollywood_North_website_-_design_elements-08_kjouhr.webp);
+  background-size: contain;
+}
+
 .hero__onecontent h1 {
   font-size: 120px;
 }
