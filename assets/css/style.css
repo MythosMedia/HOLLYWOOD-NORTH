@@ -2654,6 +2654,12 @@ iframe {
   min-width: 80px;
   height: 80px;
 }
+
+.cmn__icon100 {
+  width: 100px;
+  min-width: 100px;
+  height:100px;
+}
 .cmn__icon80::before {
   left: -5px;
   top: 0;
@@ -8939,7 +8945,7 @@ iframe {
 }
 
 .excelent-twothumb .idea {
-  box-shadow: 0px 6px 30px 0px rgba(47, 167, 95, 0.53);
+  box-shadow: 0px 6px 30px 0px #3666a1;
   position: absolute;
   top: 50px;
   left: -40px;
