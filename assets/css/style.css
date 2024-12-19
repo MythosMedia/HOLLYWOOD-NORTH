@@ -103,6 +103,10 @@
   }
 }
 
+.bg-primary{
+  background-color: #3666a1 !important;
+}
+
 .fs-one,
 h1,
 h1 > a {
@@ -8004,7 +8008,6 @@ iframe {
 .growth__item .icon {
   width: 124px;
   height: 124px;
-  background: var(--bg1);
   transition: all 0.4s;
 }
 .growth__item .online {
