@@ -7169,7 +7169,7 @@ iframe {
   justify-content: space-between;
 }
 .explore__filter .tablinks .nav-links .tablink {
-  color: var(--n500);
+  color: #000000;
   font-size: 20px;
   font-weight: 600;
   padding: 16px 20px;
@@ -7179,7 +7179,7 @@ iframe {
   border-radius: 16px;
   font-size: 20px;
   font-weight: 600;
-  color: var(--n500);
+  color: #000000;
 }
 @media (max-width: 1199px) {
   .explore__filter .tablinks .nav-links .tablink {
@@ -7567,7 +7567,7 @@ iframe {
 .courses__featuretab .tablinks .nav-links .tablink {
   border-radius: 100px !important;
   padding: 12px 32px;
-  border: 1px solid var(--n500);
+  border: 1px solid #000000;
 }
 .courses__featuretab .tablinks .nav-links.active {
   border-radius: 100px !important;
