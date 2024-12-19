@@ -1,0 +1,51 @@
+// default font family
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+// default root
+:root {
+	--body-font: 'Inter', sans-serif;
+	--transition: all 0.5s ease-in-out;
+
+	/* Color styles */
+	--p1: #DFFF5E;
+	--p1-border: rgba(223, 255, 94, 0.3);
+
+	--s1: #FFC700;
+	--s2: #2FA75F;
+	--s3: #F05D5D;
+	
+	--tw: #FFFFFF;
+	--n0: #FFFFFF;
+	--n1: #071431;
+	--n10: #FAFAFB;
+	--n20: #F5F6F7;
+	--n30: #EBECEF;
+	--n40: #DFE0E4;
+	--n50: #C1C4CC;
+	--n60: #B2B6BF;
+	--n70: #A6AAB5;
+	--n80: #979CA8;
+	--n90: #888E9C;
+	--n100: #798090;
+	--n200: #6A7283;
+	--n300: #5B6477;
+	--n400: #4F586D;
+	--n500: #404A60;
+	--n600: #343E56;
+	--n700: #222E48;
+	--n800: #13203B;
+	--n900: #071;
+	--n700: #222E48;
+
+	--bg1: #1C1D20;
+	--bg2: #262629;
+	--header: rgba(223, 255, 94, 0.08);
+
+	--gradient-p1: linear-gradient(90deg, rgba(12, 169, 64, 0.08) 0.68%, rgba(236, 88, 88, 0.08) 100%);
+	--box-shadow: 0px 5.12694px 25.6347px 0px rgba(0, 0, 0, 0.08);
+
+	// Example understanding hexa codes for rgba values
+	/* Color styles */
+	--sbox-shadow-p1: 0px 6px 30px 0px rgba(0, 0, 0, 0.08);
+	// --px1: #0ca940;
+}
