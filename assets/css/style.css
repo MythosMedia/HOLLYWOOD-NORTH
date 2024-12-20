@@ -10376,5 +10376,7 @@ iframe {
 
 .footer__one{
   background-image: url(https://res.cloudinary.com/df2fe2yzk/image/upload/v1734693912/Hollywood_North_website_design_elements-_Footer_tyiven.webp);
-  background-size: contain  ;
+  background-size: cover;
+  background-repeat: no-repeat;
+
 }
