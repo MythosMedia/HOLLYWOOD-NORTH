@@ -1,0 +1,304 @@
+
+.display-one {
+	font-size: 120px;
+}
+
+.display-two {
+	font-size: 96px;
+}
+
+.display-three {
+	font-size: 76px;
+}
+
+.display-four {
+	font-size: 60px;
+}
+
+.display-five {
+	font-size: 56px;
+}
+
+.display-six {
+	font-size: 48px;
+}
+.pragraph{
+	font-size: 18px;
+	@include maxQuery(575){
+		font-size: 16px;
+	}
+}
+
+.fs-one,
+h1,
+h1 > a {
+	font-size: 76px;
+	font-weight: 600 !important;
+}
+
+.fs-two,
+h2,
+h2 > a {
+	font-size: 57px;
+	font-weight: 600 !important;
+}
+
+.fs-three,
+h3,
+h3 > a {
+	font-size: 43px;
+	font-weight: 600 !important;
+}
+
+.fs-four,
+h4,
+h4 > a {
+	font-size: 32px;
+	font-weight: 600 !important;
+}
+
+.fs-five,
+h5,
+h5 > a {
+	font-size: 24px;
+	line-height: 150%;
+	font-weight: 600 !important;
+}
+
+.fs-six,
+h6,
+h6 > a {
+	font-size: 18px;
+	line-height: 150%;
+	font-weight: 600 !important;
+}
+
+.fs-seven {
+	font-size: 16px;
+	line-height: 150%;
+}
+
+.fs-eight {
+	font-size: 14px;
+	line-height: 150%;
+}
+
+.fs-nine {
+	font-size: 12px !important;
+	line-height: 150%;
+}
+.fs20{
+	font-size: 20px !important;
+	line-height: 1.4;
+	@include maxQuery(1199){
+		font-size: 16px !important;
+		line-height: 1.4;
+	}
+	@include maxQuery(575){
+		font-size: 16px !important;
+		line-height: 1.4;
+	}
+}
+.fs18{
+	font-size: 18px;
+	line-height: 1.5;
+}	
+.fs-22{
+	font-size: 22px;
+}
+
+table thead tr th {
+	font-size: 18px;
+	line-height: 150%;
+}
+a, 
+p,
+button,
+span,
+label,
+li {
+	font-size: 16px;
+	line-height: 150%;
+}
+
+@media (max-width: 1199px) {
+	h1, h1>a {
+		font-size: 57px;
+		line-height: 74.1px;
+	}
+	h2, h2>a {
+		font-size: 43px;
+		line-height: 55.9px;
+	}
+	.preloader {
+		background-size: 30%;
+	}
+}
+
+.pt-120 {
+	padding-top: 120px;
+}
+.pt120{
+	padding-top: 120px;
+}
+.pb120{
+	padding-bottom: 120px;
+}
+
+.pb-120 {
+	padding-bottom: 120px;
+}
+
+@media (max-width: 1199px) {
+	// Normalize
+	.display-one {
+		font-size: 72px;
+		line-height: 86.4px;
+	}
+	
+	.display-two {
+		font-size: 64px;
+		line-height: 76.8px;
+	}
+	
+	.display-three {
+		font-size: 56px;
+		line-height: 67.2px;
+	}
+	
+	.display-four {
+		font-size: 48px;
+		line-height: 46.4px;
+	}
+	
+	.display-five {
+		font-size: 42px;
+		line-height: 54.6px;
+	}
+	
+	.display-six {
+		font-size: 32px;
+		line-height: 38.4px;
+	}
+	
+	.fs-one,
+	h1,
+	h1 > a {
+		font-size: 40px;
+		line-height: 48px;
+	}
+	
+	.fs-two,
+	h2,
+	h2 > a {
+		font-size: 32px;
+		line-height: 38.4px;
+	}
+	
+	.fs-three,
+	h3,
+	h3 > a {
+		font-size: 24px;
+		line-height: 31.2px;
+	}
+	
+	.fs-four,
+	h4,
+	h4 > a {
+		font-size: 20px;
+		line-height: 26px;
+	}
+	
+	.fs-five,
+	h5,
+	h5 > a {
+		font-size: 18px;
+		line-height: 20.8px;
+	}
+	
+	.fs-six,
+	h6,
+	h6 > a {
+		font-size: 16px;
+		line-height: 18.8px;
+	}
+	
+	.fs-seven {
+		font-size: 14px;
+		line-height: 24.8px;
+	}
+	
+	.fs-eight {
+		font-size: 12px;
+		line-height: 18px;
+	}
+	
+	table thead tr th {
+		font-size: 15px;
+		line-height: 20.8px;
+	}
+	
+	a,
+	p,
+	span,
+	button,
+	label,
+	li {
+		font-size: 14px;
+		line-height: 22px;
+	}
+
+	.pt-120 {
+		padding-top: 60px;
+	}
+	.pb-120 {
+		padding-bottom: 60px;
+	}
+
+	.banner-section .overlay .sec-img{
+		display: none;
+	}
+	.banner-section .banner-content {
+		padding: 80px 0 90px;
+	}
+}
+
+@media (max-width: 575px) {
+	.display-one {
+		font-size: 56px;
+		line-height: 67.2px;
+	}
+	
+	.display-two {
+		font-size: 48px;
+		line-height: 46.4px;
+	}
+	
+	.display-three {
+		font-size: 42px;
+		line-height: 54.6px;
+	}
+	
+	.display-four {
+		font-size: 32px;
+		line-height: 38.4px;
+	}
+	
+	.display-five {
+		font-size: 24px;
+		line-height: 31.2px;
+	}
+	
+	.display-six {
+		font-size: 32px;
+		line-height: 38.4px;
+	}
+
+	.pt-120 {
+		padding-top: 50px;
+	}
+	.pb-120 {
+		padding-bottom: 50px;
+	}
+}
+
