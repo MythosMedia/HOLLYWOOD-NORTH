@@ -3795,7 +3795,7 @@ iframe {
 }
 
 .footer__onewidget__link {
-  border-left: 1px dashed var(--p1-border);
+  /* border-left: 1px dashed var(--p1-border); */
   height: 100%;
   padding-left: 66px;
 }
