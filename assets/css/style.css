@@ -7423,7 +7423,7 @@ iframe {
   color: var(--n0);
   display: block;
   border-radius: 5px;
-  background: var(--s1);
+  background: #3666a1;
   padding: 2px 6px;
   height: 22px;
   position: absolute;
@@ -8130,9 +8130,9 @@ iframe {
 }
 .subscribtion__wrap .subscribe__thumb2 {
   position: absolute;
-  right: 50px;
+  right: 100px;
   /* bottom: -1px; */
-  top: 155px;
+  top: 122px;
 }
 @media (max-width: 1399px) {
   .subscribtion__wrap {
@@ -8143,7 +8143,7 @@ iframe {
   .subscribtion__wrap .subscribe__thumb2 {
     right: 67px;
     top: 127px;
-    max-width: 300px;
+    max-width: 400px;
   }
   .subscribtion__wrap .subscribe__thumb2 img {
     width: 100%;
@@ -8489,7 +8489,7 @@ iframe {
   width: 48px;
   min-width: 48px;
   height: 48px;
-  background: #875BF7;
+  background: #3666a1;
 }
 .job.job2 {
   background: #40B25B;
@@ -8499,7 +8499,7 @@ iframe {
   width: 48px;
   min-width: 48px;
   height: 48px;
-  background: #FFC700;
+  background: #3666a1;
 }
 
 .callicon {
@@ -10382,4 +10382,23 @@ iframe {
   background-size: cover;
   background-repeat: no-repeat;
 
+}
+
+
+@media (max-width: 1399px) {
+  .subscribtion__wrap .subscribe__thumb2{
+    right: 30px;
+    top: 98px;
+  }
+}
+@media (max-width: 1199px) {
+  .vpro111 {
+    display: none;
+    /* width: 90px; */
+  }
+}
+@media (max-width: 991px) {
+  .vpro111 {
+    display: none;
+  }
 }
