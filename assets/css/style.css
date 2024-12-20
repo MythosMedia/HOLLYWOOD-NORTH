@@ -2017,7 +2017,7 @@ iframe {
 }
 
 #preloader {
-  background: rgba(5, 44, 18, 0.927);
+  background: rgba(0, 0, 0, 0.927);
   overflow: hidden;
   position: fixed;
   top: 0;
