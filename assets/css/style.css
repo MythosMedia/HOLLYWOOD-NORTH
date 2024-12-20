@@ -8973,7 +8973,7 @@ iframe {
 }
 @media (max-width: 1399px) {
   .excelent-twothumb .idea img {
-    width: 26px;
+    /* width: 26px; */
   }
 }
 @media (max-width: 1199px) {
