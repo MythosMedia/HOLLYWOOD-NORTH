@@ -3133,7 +3133,7 @@ iframe {
 .header-section .main-navbar .logo {
   display: none;
 }
-.header-section .main-navbar .custom-nav .menu-item button::after {
+/* .header-section .main-navbar .custom-nav .menu-item button::after {
   position: absolute;
   content: "\f078";
   font-family: "FontAwesome";
@@ -3142,7 +3142,7 @@ iframe {
   right: 0px;
   z-index: -1;
   transition: all 1s ease;
-}
+} */
 .header-section .main-navbar .custom-nav .menu-item .home-scroolls {
   height: 30vh;
   overflow-y: scroll;
