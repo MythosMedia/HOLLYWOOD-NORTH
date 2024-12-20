@@ -3178,6 +3178,7 @@ iframe {
 @media (max-width: 991px) {
   .header-section .main-navbar .custom-nav {
     width: 100%;
+    background-color: black !important;
   }
   .header-section .main-navbar .custom-nav .sub-menu {
     display: none;
