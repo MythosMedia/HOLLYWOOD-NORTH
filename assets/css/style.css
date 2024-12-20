@@ -768,6 +768,10 @@ select {
   background: var(--p1);
 }
 
+.p11-bg{
+  background-color: #3666a1;
+}
+
 .s1-color {
   color: var(--s1);
 }
@@ -10368,4 +10372,9 @@ iframe {
   .vpro111 {
     display: none;
   }
+}
+
+.footer__one{
+  background-image: url(https://res.cloudinary.com/df2fe2yzk/image/upload/v1734693912/Hollywood_North_website_design_elements-_Footer_tyiven.webp);
+  background-size: contain  ;
 }
