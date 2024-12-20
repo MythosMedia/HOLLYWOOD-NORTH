@@ -920,6 +920,7 @@ select {
   color: #000000;
 }
 
+
 .n700-bg {
   background: var(--n700);
 }
@@ -3355,7 +3356,8 @@ iframe {
 
 @media (max-width: 991px) {
   .one__header .one__mainheader {
-    padding: 24px 0;
+    background-color: black;
+    padding: 24px;
   }
   .one__header .itembg__1 {
     padding: 14px 20px 18px;
@@ -8129,7 +8131,7 @@ iframe {
   position: absolute;
   right: 50px;
   /* bottom: -1px; */
-  top: 110px;
+  top: 155px;
 }
 @media (max-width: 1399px) {
   .subscribtion__wrap {
@@ -8138,8 +8140,8 @@ iframe {
 }
 @media (max-width: 1199px) {
   .subscribtion__wrap .subscribe__thumb2 {
-    right: 10px;
-    bottom: -1px;
+    right: 67px;
+    top: 127px;
     max-width: 300px;
   }
   .subscribtion__wrap .subscribe__thumb2 img {
@@ -8161,7 +8163,7 @@ iframe {
   font-size: 40px;
 }
 .subscrib__content form {
-  background: var(--bg1);
+  background: white;
   border-radius: 100px;
   padding: 4px;
 }
