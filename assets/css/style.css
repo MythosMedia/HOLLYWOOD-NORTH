@@ -10396,6 +10396,9 @@ iframe {
     display: none;
     /* width: 90px; */
   }
+  .navbar-3{
+    padding-left:8px ;
+  }
 }
 @media (max-width: 991px) {
   .vpro111 {
