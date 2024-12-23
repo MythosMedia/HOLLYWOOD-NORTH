@@ -2193,6 +2193,7 @@ iframe {
 }
 
 .explore__item {
+  border-radius: 20px;
   transition: all 0.4s;
 }
 
