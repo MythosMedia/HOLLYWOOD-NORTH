@@ -10508,6 +10508,9 @@ iframe {
   .navbar-3{
     padding-left:8px ;
   }
+  .about-study{
+    padding-top: 128px !important;
+  }
 }
 @media (max-width: 991px) {
   .vpro111 {
