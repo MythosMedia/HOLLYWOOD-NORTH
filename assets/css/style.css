@@ -3659,7 +3659,7 @@ iframe {
     color: var(--n0);
   }
   .header-v3 .navbar-toggle-btn span {
-    background: var(--n500) !important;
+    /* background: var(--n500) !important; */
   }
   .header-v3 .left__navbox {
     width: 100%;
