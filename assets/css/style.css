@@ -10520,3 +10520,7 @@ iframe {
     display: none;
   }
 }
+
+.contact-left-bar{
+  border: 1px solid #5f9be3;
+}
