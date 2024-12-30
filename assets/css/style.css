@@ -219,6 +219,9 @@
 .bg-colory{
   background-color: #5f9be3 !important;
 }
+.bg-colory-border{
+  border:1px solid #5f9be3;
+}
 
 .fs-one,
 h1,
@@ -10525,4 +10528,8 @@ iframe {
 
 .contact-left-bar{
   border: 1px solid #5f9be3;
+}
+
+.excelent__two{
+  background-color: white;
 }
