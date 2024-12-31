@@ -29,10 +29,9 @@
 @import "../css/plugins/aos.css";
 @import "../css/plugins/tabler-icons.min.css";
 /* @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"); */
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-/* @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,500;1,500&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,500;1,500&display=swap');
 :root {
-  --body-font: "Barlow Condensed", serif;
+  --body-font: "Barlow", serif;
   font-weight: 100;
   --transition: all 0.5s ease-in-out;
   /* Color styles */
@@ -72,113 +71,114 @@
   /* Color styles */
   --sbox-shadow-p1: 0px 6px 30px 0px rgba(0, 0, 0, 0.08);
 }
-.barlow-condensed-thin {
-  font-family: "Barlow Condensed", serif;
+.barlow-thin {
+  font-family: "Barlow", serif;
   font-weight: 100;
   font-style: normal;
 }
 
-.barlow-condensed-extralight {
-  font-family: "Barlow Condensed", serif;
+.barlow-extralight {
+  font-family: "Barlow", serif;
   font-weight: 200;
   font-style: normal;
 }
 
-.barlow-condensed-light {
-  font-family: "Barlow Condensed", serif;
+.barlow-light {
+  font-family: "Barlow", serif;
   font-weight: 300;
   font-style: normal;
 }
 
-.barlow-condensed-regular {
-  font-family: "Barlow Condensed", serif;
+.barlow-regular {
+  font-family: "Barlow", serif;
   font-weight: 400;
   font-style: normal;
 }
 
-.barlow-condensed-medium {
-  font-family: "Barlow Condensed", serif;
+.barlow-medium {
+  font-family: "Barlow", serif;
   font-weight: 500;
   font-style: normal;
 }
 
-.barlow-condensed-semibold {
-  font-family: "Barlow Condensed", serif;
+.barlow-semibold {
+  font-family: "Barlow", serif;
   font-weight: 600;
   font-style: normal;
 }
 
-.barlow-condensed-bold {
-  font-family: "Barlow Condensed", serif;
+.barlow-bold {
+  font-family: "Barlow", serif;
   font-weight: 700;
   font-style: normal;
 }
 
-.barlow-condensed-extrabold {
-  font-family: "Barlow Condensed", serif;
+.barlow-extrabold {
+  font-family: "Barlow", serif;
   font-weight: 800;
   font-style: normal;
 }
 
-.barlow-condensed-black {
-  font-family: "Barlow Condensed", serif;
+.barlow-black {
+  font-family: "Barlow", serif;
   font-weight: 900;
   font-style: normal;
 }
 
-.barlow-condensed-thin-italic {
-  font-family: "Barlow Condensed", serif;
+.barlow-thin-italic {
+  font-family: "Barlow", serif;
   font-weight: 100;
   font-style: italic;
 }
 
-.barlow-condensed-extralight-italic {
-  font-family: "Barlow Condensed", serif;
+.barlow-extralight-italic {
+  font-family: "Barlow", serif;
   font-weight: 200;
   font-style: italic;
 }
 
-.barlow-condensed-light-italic {
-  font-family: "Barlow Condensed", serif;
+.barlow-light-italic {
+  font-family: "Barlow", serif;
   font-weight: 300;
   font-style: italic;
 }
 
-.barlow-condensed-regular-italic {
-  font-family: "Barlow Condensed", serif;
+.barlow-regular-italic {
+  font-family: "Barlow", serif;
   font-weight: 400;
   font-style: italic;
 }
 
-.barlow-condensed-medium-italic {
-  font-family: "Barlow Condensed", serif;
+.barlow-medium-italic {
+  font-family: "Barlow", serif;
   font-weight: 500;
   font-style: italic;
 }
 
-.barlow-condensed-semibold-italic {
-  font-family: "Barlow Condensed", serif;
+.barlow-semibold-italic {
+  font-family: "Barlow", serif;
   font-weight: 600;
   font-style: italic;
 }
 
-.barlow-condensed-bold-italic {
-  font-family: "Barlow Condensed", serif;
+.barlow-bold-italic {
+  font-family: "Barlow", serif;
   font-weight: 700;
   font-style: italic;
 }
 
-.barlow-condensed-extrabold-italic {
-  font-family: "Barlow Condensed", serif;
+.barlow-extrabold-italic {
+  font-family: "Barlow", serif;
   font-weight: 800;
   font-style: italic;
 }
 
-.barlow-condensed-black-italic {
-  font-family: "Barlow Condensed", serif;
+.barlow-black-italic {
+  font-family: "Barlow", serif;
   font-weight: 900;
   font-style: italic;
 }
+
 
 .display-one {
   font-size: 120px;
