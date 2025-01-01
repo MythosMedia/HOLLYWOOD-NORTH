@@ -1122,9 +1122,10 @@ select {
 
 .p1hover {
   transition: all 0.4s;
+  font-weight: bold;
 }
 .p1hover:hover {
-  color: var(--p1) !important;
+  color: #3666a1 !important;
 }
 
 .custom-loop-play {
