@@ -2133,7 +2133,7 @@ iframe {
 }
 
 #preloader {
-  background: rgba(0, 0, 0, 0.927);
+  background: black;
   overflow: hidden;
   position: fixed;
   top: 0;
