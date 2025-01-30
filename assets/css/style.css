@@ -5941,10 +5941,11 @@ iframe {
 
 @media (max-width: 575px) {
   .thumb-courses {
-    margin-bottom: 36px;
+    /* margin-bottom: 36px; */
   }
   .thumb-courses .mimg {
-    height: 100%;
+    height: 320px;
+    object-fit: cover;
     margin-bottom: 24px;
   }
   .thumb-courses .breadcrumnd {
@@ -10533,4 +10534,12 @@ iframe {
 
 .excelent__two{
   background-color: white;
+}
+
+.stripe_button{
+  position:absolute;
+  bottom: 20px;
+}
+.BuyButton-ButtonTextContainer{
+  background-color: #5f9be3 !important;
 }
