@@ -19,21 +19,23 @@
     <!-- ==== css dependencies start ==== -->
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- Meta Pixel Code -->
-<script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1734890047304449');
-    fbq('track', 'PageView');
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1734890047304449');
+        fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1734890047304449&ev=PageView&noscript=1"
-    /></noscript>
+            src="https://www.facebook.com/tr?id=1734890047304449&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
 </head>
 
@@ -346,61 +348,106 @@
     <!-- header-section end -->
 
     <script>
-    const wpApiUrl = 'https://blog.hollywoodnorth.com/wp-json/wp/v2/posts?_embed';
+        const wpApiUrl = 'https://blog.hollywoodnorth.com/wp-json/wp/v2/posts?_embed';
 
-    function loadBlogPosts() {
-        fetch(wpApiUrl)
-            .then(response => response.json())
-            .then(posts => {
-                const blogPostsContainer = document.getElementById('blog-posts');
-                blogPostsContainer.innerHTML = ''; // Clear previous content
+        function loadBlogPosts() {
+            const blogPostsContainer = document.getElementById('blog-posts');
+            const loadingIndicator = document.getElementById('loading');
+            const errorMessage = document.getElementById('error-message');
 
-                posts.forEach(post => {
-                    const postDate = new Date(post.date).toLocaleDateString();
-                    const postAuthor = post._embedded.author[0].name;
-                    const postImage = post._embedded['wp:featuredmedia'] ? post._embedded['wp:featuredmedia'][0].source_url : 'assets/images/common/classic-big1.png';
-                    const postLink = `blog-details.html?slug=${post.slug}`;
+            // Show loading spinner
+            loadingIndicator.classList.remove('hidden');
+            errorMessage.classList.add('hidden'); // Hide error initially
 
-                    const excerptText = post.excerpt.rendered.replace(/<[^>]*>?/gm, '').substring(0, 250) + '...';
+            fetch(wpApiUrl)
+                .then(response => response.json())
+                .then(posts => {
+                    blogPostsContainer.innerHTML = ''; // Clear previous content
+                    loadingIndicator.classList.add('hidden'); // Hide loading spinner
 
-                    const postHTML = `
-                    <div class="explore__item bb-n50dash pb-xxl-10 pb-8 mb-xxl-10 mb-8">
-                        <div class="thumb radius16 over w-100 position-relative">
-                            <img width="856" height="500" src="${postImage}" class="w-100 radius16 mimg blogImg" alt="${post.title.rendered}">
-                        </div>
-                        <div class="content pt-5 pt-xxl-6">
-                            <div class="d-flex flex-wrap align-items-center mb-4 mb-xl-5 gap-xxl-4 gap-xl-3 gap-lg-2 gap-2">
-                                <div class="d-flex align-items-center gap-xxl-2 gap-1">
-                                    <i class="ti ti-user-circle n500-color fs-six fw_400"></i>
-                                    <span class="fs-six fw_400 n500-color">By ${postAuthor}</span>
-                                </div>
-                                <div class="d-flex cmn-dot2 align-items-center gap-xxl-2 gap-1">
-                                    <i class="ti ti-calendar-due n500-color fs-six fw_400"></i>
-                                    <span class="fs-six fw_400 n500-color">${postDate}</span>
-                                </div>
+                    if (posts.length === 0) {
+                        errorMessage.classList.remove('hidden'); // Show error message if no posts
+                        return;
+                    }
+
+                    posts.forEach(post => {
+                        const postDate = new Date(post.date).toLocaleDateString();
+                        const postAuthor = post._embedded.author[0].name;
+                        const postImage = post._embedded['wp:featuredmedia'] ? post._embedded['wp:featuredmedia'][0].source_url : 'assets/images/common/classic-big1.png';
+                        const postLink = `blog-details.html?slug=${post.slug}`;
+                        const excerptText = post.excerpt.rendered.replace(/<[^>]*>?/gm, '').substring(0, 250) + '...';
+
+                        const postHTML = `
+                        <div class="explore__item bb-n50dash pb-xxl-10 pb-8 mb-xxl-10 mb-8">
+                            <div class="thumb radius16 over w-100 position-relative">
+                                <img width="856" height="500" src="${postImage}" class="w-100 radius16 mimg blogImg" alt="${post.title.rendered}">
                             </div>
-                            <h5 class="mb-4 mb-xl-5">
-                                <a href="${postLink}">
-                                    ${post.title.rendered}
+                            <div class="content pt-5 pt-xxl-6">
+                                <div class="d-flex flex-wrap align-items-center mb-4 mb-xl-5 gap-xxl-4 gap-xl-3 gap-lg-2 gap-2">
+                                    <div class="d-flex align-items-center gap-xxl-2 gap-1">
+                                        <i class="ti ti-user-circle n500-color fs-six fw_400"></i>
+                                        <span class="fs-six fw_400 n500-color">By ${postAuthor}</span>
+                                    </div>
+                                    <div class="d-flex cmn-dot2 align-items-center gap-xxl-2 gap-1">
+                                        <i class="ti ti-calendar-due n500-color fs-six fw_400"></i>
+                                        <span class="fs-six fw_400 n500-color">${postDate}</span>
+                                    </div>
+                                </div>
+                                <h5 class="mb-4 mb-xl-5">
+                                    <a href="${postLink}">
+                                        ${post.title.rendered}
+                                    </a>
+                                </h5>
+                                <p class="n500-color mb-xxl-6 mb-4">${excerptText}</p>
+                                <a href="${postLink}" class="d-inline-flex bbsolid-700 n700-color fw_600">
+                                    Read More
+                                    <i class="ti ti-arrow-up-right fs-six"></i>
                                 </a>
-                            </h5>
-                            <p class="n500-color mb-xxl-6 mb-4">${excerptText}</p>
-                            <a href="${postLink}" class="d-inline-flex bbsolid-700 n700-color fw_600">
-                                Read More
-                                <i class="ti ti-arrow-up-right fs-six"></i>
-                            </a>
-                        </div>
-                    </div>`;
+                            </div>
+                        </div>`;
 
-                    blogPostsContainer.insertAdjacentHTML('beforeend', postHTML);
+                        blogPostsContainer.insertAdjacentHTML('beforeend', postHTML);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching posts:', error);
+                    loadingIndicator.classList.add('hidden'); // Hide loading
+                    errorMessage.classList.remove('hidden'); // Show error message
                 });
-            })
-            .catch(error => console.error('Error fetching posts:', error));
-    }
+        }
 
-    // Load blog posts on page load
-    document.addEventListener("DOMContentLoaded", loadBlogPosts);
-</script>
+        // Load blog posts on page load
+        document.addEventListener("DOMContentLoaded", loadBlogPosts);
+    </script>
+    <style>
+        /* Loading spinner */
+        .loading-spinner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 80px;
+            color: #fff;
+            background-color: #3666a1;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+        }
+    
+        /* Hide by default */
+        .hidden {
+            display: none;
+        }
+    
+        /* Error message styling */
+        .error-message {
+            text-align: center;
+            color: #ff4d4d;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
 
 
     <!-- blog classic start -->
@@ -411,44 +458,41 @@
                 Sidebar Toggle
             </button>
             <div class="row g-6">
-                <div id="blog-posts" class="col-lg-8">
-                 
-                   
-                    <ul
-                        class="pagination mt-xxl-10 mt-8 d-flex justify-content-center align-items-center gap-xxl-3 gap-2 flex-wrap">
+                <div id="blog-posts-container" class="col-lg-8">
+                    <!-- Loading Spinner -->
+                    <div id="loading" class="loading-spinner">
+                        Loading blog posts...
+                    </div>
+    
+                    <!-- Blog Posts Will Load Here -->
+                    <div id="blog-posts"></div>
+    
+                    <!-- Error Message -->
+                    <div id="error-message" class="error-message hidden">
+                        Oops! No blog posts found or an error occurred.
+                    </div>
+    
+                    <!-- Pagination (optional) -->
+                    <ul class="pagination mt-xxl-10 mt-8 d-flex justify-content-center align-items-center gap-xxl-3 gap-2 flex-wrap">
                         <li>
-                            <a href="javascript:void(0)"
-                                class="n0-bg cmn__icon40 fw_600 d-center radius100 cus-border border">
+                            <a href="javascript:void(0)" class="n0-bg cmn__icon40 fw_600 d-center radius100 cus-border border">
                                 <i class="ti ti-chevron-left fs-six"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="javascript:void(0)"
-                                class="n0-bg cmn__icon40 fw_600 d-center radius100 cus-border border">
-                                1
-                            </a>
+                            <a href="javascript:void(0)" class="n0-bg cmn__icon40 fw_600 d-center radius100 cus-border border">1</a>
                         </li>
                         <li>
-                            <a href="javascript:void(0)"
-                                class="n0-bg cmn__icon40 fw_600 d-center radius100 cus-border border">
-                                2
-                            </a>
+                            <a href="javascript:void(0)" class="n0-bg cmn__icon40 fw_600 d-center radius100 cus-border border">2</a>
                         </li>
                         <li>
-                            <a href="javascript:void(0)"
-                                class="n0-bg cmn__icon40 fw_600 d-center radius100 cus-border border">
-                                3
-                            </a>
+                            <a href="javascript:void(0)" class="n0-bg cmn__icon40 fw_600 d-center radius100 cus-border border">3</a>
                         </li>
                         <li>
-                            <a href="javascript:void(0)"
-                                class="n0-bg cmn__icon40 fw_600 d-center radius100 cus-border border">
-                                ...
-                            </a>
+                            <a href="javascript:void(0)" class="n0-bg cmn__icon40 fw_600 d-center radius100 cus-border border">...</a>
                         </li>
                         <li>
-                            <a href="javascript:void(0)"
-                                class="n0-bg cmn__icon40 fw_600 d-center radius100 cus-border border">
+                            <a href="javascript:void(0)" class="n0-bg cmn__icon40 fw_600 d-center radius100 cus-border border">
                                 <i class="ti ti-chevron-right fs-six"></i>
                             </a>
                         </li>
