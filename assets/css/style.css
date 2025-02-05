@@ -435,7 +435,7 @@ li {
     line-height: 22px;
   }
   .pt-120 {
-    padding-top: 60px;
+    /* padding-top: 60px; */
   }
   .pb-120 {
     padding-bottom: 60px;
@@ -473,7 +473,7 @@ li {
     line-height: 38.4px;
   }
   .pt-120 {
-    padding-top: 50px;
+    /* padding-top: 50px; */
   }
   .pb-120 {
     padding-bottom: 50px;
