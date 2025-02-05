@@ -345,6 +345,64 @@
     </header>
     <!-- header-section end -->
 
+    <script>
+    const wpApiUrl = 'https://blog.hollywoodnorth.com/wp-json/wp/v2/posts?_embed';
+
+    function loadBlogPosts() {
+        fetch(wpApiUrl)
+            .then(response => response.json())
+            .then(posts => {
+                const blogPostsContainer = document.getElementById('blog-posts');
+                blogPostsContainer.innerHTML = ''; // Clear previous content
+
+                posts.forEach(post => {
+                    const postDate = new Date(post.date).toLocaleDateString();
+                    const postAuthor = post._embedded.author[0].name;
+                    const postImage = post._embedded['wp:featuredmedia'] ? post._embedded['wp:featuredmedia'][0].source_url : 'assets/images/common/classic-big1.png';
+                    const postLink = `blog-details.html?slug=${post.slug}`;
+
+                    const excerptText = post.excerpt.rendered.replace(/<[^>]*>?/gm, '').substring(0, 250) + '...';
+
+                    const postHTML = `
+                    <div class="explore__item bb-n50dash pb-xxl-10 pb-8 mb-xxl-10 mb-8">
+                        <div class="thumb radius16 over w-100 position-relative">
+                            <img width="856" height="500" src="${postImage}" class="w-100 radius16 mimg blogImg" alt="${post.title.rendered}">
+                        </div>
+                        <div class="content pt-5 pt-xxl-6">
+                            <div class="d-flex flex-wrap align-items-center mb-4 mb-xl-5 gap-xxl-4 gap-xl-3 gap-lg-2 gap-2">
+                                <div class="d-flex align-items-center gap-xxl-2 gap-1">
+                                    <i class="ti ti-user-circle n500-color fs-six fw_400"></i>
+                                    <span class="fs-six fw_400 n500-color">By ${postAuthor}</span>
+                                </div>
+                                <div class="d-flex cmn-dot2 align-items-center gap-xxl-2 gap-1">
+                                    <i class="ti ti-calendar-due n500-color fs-six fw_400"></i>
+                                    <span class="fs-six fw_400 n500-color">${postDate}</span>
+                                </div>
+                            </div>
+                            <h5 class="mb-4 mb-xl-5">
+                                <a href="${postLink}">
+                                    ${post.title.rendered}
+                                </a>
+                            </h5>
+                            <p class="n500-color mb-xxl-6 mb-4">${excerptText}</p>
+                            <a href="${postLink}" class="d-inline-flex bbsolid-700 n700-color fw_600">
+                                Read More
+                                <i class="ti ti-arrow-up-right fs-six"></i>
+                            </a>
+                        </div>
+                    </div>`;
+
+                    blogPostsContainer.insertAdjacentHTML('beforeend', postHTML);
+                });
+            })
+            .catch(error => console.error('Error fetching posts:', error));
+    }
+
+    // Load blog posts on page load
+    document.addEventListener("DOMContentLoaded", loadBlogPosts);
+</script>
+
+
     <!-- blog classic start -->
     <section class="blog-classic-section cmn__rightclick pt-120 pb-20">
         <div class="container">
@@ -353,148 +411,9 @@
                 Sidebar Toggle
             </button>
             <div class="row g-6">
-                <div class="col-lg-8">
-                    <div class="explore__item  bb-n50dash pb-xxl-10 pb-8 mb-xxl-10 mb-8">
-                        <div class="thumb radius16 over w-100 position-relative">
-                            <img src="assets/images/common/classic-big1.png" class="w-100 radius16 mimg " alt="img">
-                        </div>
-                        <div class="content pt-5 pt-xxl-6">
-                            <div
-                                class="d-flex flex-wrap align-items-center mb-4 mb-xl-5 gap-xxl-4 gap-xl-3 gap-lg-2 gap-2">
-                                <div class="d-flex align-items-center gap-xxl-2 gap-1">
-                                    <i class="ti ti-user-circle n500-color fs-six fw_400"></i>
-                                    <span class="fs-six fw_400 n500-color">
-                                        By Admin
-                                    </span>
-                                </div>
-                                <div class="d-flex cmn-dot2 align-items-center gap-xxl-2 gap-1">
-                                    <i class="ti ti-calendar-due n500-color fs-six fw_400"></i>
-                                    <span class="fs-six fw_400 n500-color">
-                                        12 Sep, 2024
-                                    </span>
-                                </div>
-                                <div class="d-flex cmn-dot2 align-items-center gap-xxl-2 gap-1">
-                                    <i class="ti ti-eye n500-color fs-six fw_400"></i>
-                                    <span class="fs-six fw_400 n500-color">
-                                        1.6k
-                                    </span>
-                                </div>
-                                <div class="d-flex cmn-dot2 align-items-center gap-xxl-2 gap-1">
-                                    <i class="ti ti-message-dots n500-color fs-six fw_400"></i>
-                                    <span class="fs-six fw_400 n500-color">
-                                        24
-                                    </span>
-                                </div>
-                            </div>
-                            <h5 class="mb-4 mb-xl-5">
-                                <a href="#">
-                                    Mastering the Art of Time Management in Online
-                                </a>
-                                </h4>
-                                <p class="n500-color mb-xxl-6 mb-4">
-                                    Unlock the secrets to effective time management in the digital learning space. Learn
-                                    practical tips to balance coursework, projects, and personal commitments.
-                                </p>
-                                <a href="#" class="d-inline-flex bbsolid-700 n700-color fw_600">
-                                    Read More
-                                    <i class="ti ti-arrow-up-right fs-six"></i>
-                                </a>
-                        </div>
-                    </div>
-                    <div class="explore__item  bb-n50dash pb-xxl-10 pb-8 mb-xxl-10 mb-8">
-                        <div class="thumb radius16 over w-100 position-relative">
-                            <img src="assets/images/common/classic-big2.png" class="w-100 radius16 mimg " alt="img">
-                        </div>
-                        <div class="content pt-5 pt-xxl-6">
-                            <div
-                                class="d-flex flex-wrap align-items-center mb-4 mb-xl-5 gap-xxl-4 gap-xl-3 gap-lg-2 gap-2">
-                                <div class="d-flex align-items-center gap-xxl-2 gap-1">
-                                    <i class="ti ti-user-circle n500-color fs-six fw_400"></i>
-                                    <span class="fs-six fw_400 n500-color">
-                                        By Admin
-                                    </span>
-                                </div>
-                                <div class="d-flex cmn-dot2 align-items-center gap-xxl-2 gap-1">
-                                    <i class="ti ti-calendar-due n500-color fs-six fw_400"></i>
-                                    <span class="fs-six fw_400 n500-color">
-                                        12 Sep, 2024
-                                    </span>
-                                </div>
-                                <div class="d-flex cmn-dot2 align-items-center gap-xxl-2 gap-1">
-                                    <i class="ti ti-eye n500-color fs-six fw_400"></i>
-                                    <span class="fs-six fw_400 n500-color">
-                                        1.6k
-                                    </span>
-                                </div>
-                                <div class="d-flex cmn-dot2 align-items-center gap-xxl-2 gap-1">
-                                    <i class="ti ti-message-dots n500-color fs-six fw_400"></i>
-                                    <span class="fs-six fw_400 n500-color">
-                                        24
-                                    </span>
-                                </div>
-                            </div>
-                            <h5 class="mb-4 mb-xl-5">
-                                <a href="#">
-                                    The Impact of Technology on Education: Trends
-                                </a>
-                                </h4>
-                                <p class="n500-color mb-xxl-6 mb-4">
-                                    Explore the evolving landscape of education technology. From AI in learning to
-                                    virtual classrooms, discover the latest trends shaping the future of education.
-                                </p>
-                                <a href="#" class="d-inline-flex bbsolid-700 n700-color fw_600">
-                                    Read More
-                                    <i class="ti ti-arrow-up-right fs-six"></i>
-                                </a>
-                        </div>
-                    </div>
-                    <div class="explore__item  bb-n50dash pb-xxl-10 pb-8 mb-xxl-10 mb-8">
-                        <div class="thumb radius16 over w-100 position-relative">
-                            <img src="assets/images/common/classic-big3.png" class="w-100 radius16 mimg " alt="img">
-                        </div>
-                        <div class="content pt-5 pt-xxl-6">
-                            <div
-                                class="d-flex flex-wrap align-items-center mb-4 mb-xl-5 gap-xxl-4 gap-xl-3 gap-lg-2 gap-2">
-                                <div class="d-flex align-items-center gap-xxl-2 gap-1">
-                                    <i class="ti ti-user-circle n500-color fs-six fw_400"></i>
-                                    <span class="fs-six fw_400 n500-color">
-                                        By Admin
-                                    </span>
-                                </div>
-                                <div class="d-flex cmn-dot2 align-items-center gap-xxl-2 gap-1">
-                                    <i class="ti ti-calendar-due n500-color fs-six fw_400"></i>
-                                    <span class="fs-six fw_400 n500-color">
-                                        12 Sep, 2024
-                                    </span>
-                                </div>
-                                <div class="d-flex cmn-dot2 align-items-center gap-xxl-2 gap-1">
-                                    <i class="ti ti-eye n500-color fs-six fw_400"></i>
-                                    <span class="fs-six fw_400 n500-color">
-                                        1.6k
-                                    </span>
-                                </div>
-                                <div class="d-flex cmn-dot2 align-items-center gap-xxl-2 gap-1">
-                                    <i class="ti ti-message-dots n500-color fs-six fw_400"></i>
-                                    <span class="fs-six fw_400 n500-color">
-                                        24
-                                    </span>
-                                </div>
-                            </div>
-                            <h5 class="mb-4 mb-xl-5">
-                                <a href="#">
-                                    Behind the Scenes: A Day in the Life of a UI/UX
-                                </a>
-                                </h4>
-                                <p class="n500-color mb-xxl-6 mb-4">
-                                    Gain insights into the daily routines and challenges faced by UI/UX designers.
-                                    Follow the journey of professionals shaping user experiences in the tech world.
-                                </p>
-                                <a href="#" class="d-inline-flex bbsolid-700 n700-color fw_600">
-                                    Read More
-                                    <i class="ti ti-arrow-up-right fs-six"></i>
-                                </a>
-                        </div>
-                    </div>
+                <div id="blog-posts" class="col-lg-8">
+                 
+                   
                     <ul
                         class="pagination mt-xxl-10 mt-8 d-flex justify-content-center align-items-center gap-xxl-3 gap-2 flex-wrap">
                         <li>

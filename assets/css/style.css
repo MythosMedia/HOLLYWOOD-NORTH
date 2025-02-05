@@ -10503,6 +10503,11 @@ iframe {
 
 }
 
+.blogImg{
+  height: 500px;
+  object-fit: cover;
+}
+
 
 @media (max-width: 1399px) {
   .subscribtion__wrap .subscribe__thumb2{
