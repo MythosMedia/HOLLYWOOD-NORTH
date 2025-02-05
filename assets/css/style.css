@@ -10553,3 +10553,8 @@ iframe {
 .BuyButton-ButtonTextContainer{
   background-color: #5f9be3 !important;
 }
+.support-btn {
+  width: 350px;
+  text-align: left;
+  margin-left: 0;
+}
