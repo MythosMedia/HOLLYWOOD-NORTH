@@ -3159,7 +3159,7 @@ iframe {
 
 @media (max-width: 991px) {
   .cmn-leftclickbodyevent-details {
-    top: 50px;
+    top: 80px;
   }
 }
 
@@ -10506,6 +10506,11 @@ iframe {
 .blogImg{
   height: 500px;
   object-fit: cover;
+}
+
+
+.box-enroll{
+  height:300px;
 }
 
 
