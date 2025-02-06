@@ -333,81 +333,8 @@
         </div>
     </header>
     <!-- header-section end -->
-
-    <script>
-        const wpApiUrl = 'https://blog.hollywoodnorth.com/wp-json/wp/v2/posts?_embed';
-
-        function loadBlogPosts() {
-            const blogPostsContainer = document.getElementById('blog-posts');
-            const loadingIndicator = document.getElementById('loading');
-            const errorMessage = document.getElementById('error-message');
-
-            // Show loading spinner
-            loadingIndicator.classList.remove('hidden');
-            errorMessage.classList.add('hidden'); // Hide error initially
-
-            fetch(wpApiUrl)
-                .then(response => response.json())
-                .then(posts => {
-                    blogPostsContainer.innerHTML = ''; // Clear previous content
-                    loadingIndicator.classList.add('hidden'); // Hide loading spinner
-
-                    if (posts.length === 0) {
-                        errorMessage.classList.remove('hidden'); // Show error message if no posts
-                        return;
-                    }
-
-                    posts.forEach(post => {
-                        const postDate = new Date(post.date).toLocaleDateString();
-                        const postAuthor = post._embedded.author[0].name;
-                        const postImage = post._embedded['wp:featuredmedia'] ? post._embedded['wp:featuredmedia'][0].source_url : 'assets/images/common/classic-big1.png';
-                        const postLink = `blog-details.html?slug=${post.slug}`;
-                        const excerptText = post.excerpt.rendered.replace(/<[^>]*>?/gm, '').substring(0, 250) + '...';
-
-                        const postHTML = `
-                        <div class="explore__item bb-n50dash pb-xxl-10 pb-8 mb-xxl-10 mb-8">
-                            <div class="thumb radius16 over w-100 position-relative">
-                                <img width="856" height="500" src="${postImage}" class="w-100 radius16 mimg blogImg" alt="${post.title.rendered}">
-                            </div>
-                            <div class="content pt-5 pt-xxl-6">
-                                <div class="d-flex flex-wrap align-items-center mb-4 mb-xl-5 gap-xxl-4 gap-xl-3 gap-lg-2 gap-2">
-                                    <div class="d-flex align-items-center gap-xxl-2 gap-1">
-                                        <i class="ti ti-user-circle n500-color fs-six fw_400"></i>
-                                        <span class="fs-six fw_400 n500-color">By ${postAuthor}</span>
-                                    </div>
-                                    <div class="d-flex cmn-dot2 align-items-center gap-xxl-2 gap-1">
-                                        <i class="ti ti-calendar-due n500-color fs-six fw_400"></i>
-                                        <span class="fs-six fw_400 n500-color">${postDate}</span>
-                                    </div>
-                                </div>
-                                <h5 class="mb-4 mb-xl-5">
-                                    <a href="${postLink}">
-                                        ${post.title.rendered}
-                                    </a>
-                                </h5>
-                                <p class="n500-color mb-xxl-6 mb-4">${excerptText}</p>
-                                <a href="${postLink}" class="d-inline-flex bbsolid-700 n700-color fw_600">
-                                    Read More
-                                    <i class="ti ti-arrow-up-right fs-six"></i>
-                                </a>
-                            </div>
-                        </div>`;
-
-                        blogPostsContainer.insertAdjacentHTML('beforeend', postHTML);
-                    });
-                })
-                .catch(error => {
-                    console.error('Error fetching posts:', error);
-                    loadingIndicator.classList.add('hidden'); // Hide loading
-                    errorMessage.classList.remove('hidden'); // Show error message
-                });
-        }
-
-        // Load blog posts on page load
-        document.addEventListener("DOMContentLoaded", loadBlogPosts);
-    </script>
     <style>
-        /* Loading spinner */
+        /* Loading Spinner */
         .loading-spinner {
             display: flex;
             justify-content: center;
@@ -419,9 +346,10 @@
             font-size: 18px;
             font-weight: bold;
             border-radius: 8px;
+            margin-bottom: 20px;
         }
     
-        /* Hide by default */
+        /* Hide elements initially */
         .hidden {
             display: none;
         }
@@ -436,213 +364,278 @@
         }
     </style>
 
-
-    <!-- blog classic start -->
-    <section class="blog-classic-section cmn__rightclick pt-120 pb-20">
-        <div class="container">
-            <button type="button" class="clickhere-active mb-6">
-                <i class="ti ti-adjustments-horizontal fs-four fw-400"></i>
-                Sidebar Toggle
-            </button>
-            <div class="row g-6">
-                <div id="blog-posts-container" class="col-lg-8">
-                    <!-- Loading Spinner -->
-                    <div id="loading" class="loading-spinner">
-                        Loading blog posts...
-                    </div>
-    
-                    <!-- Blog Posts Will Load Here -->
-                    <div id="blog-posts"></div>
-    
-                    <!-- Error Message -->
-                    <div id="error-message" class="error-message hidden">
-                        Oops! No blog posts found or an error occurred.
-                    </div>
-    
-                    <!-- Pagination (optional) -->
-                    <ul class="pagination mt-xxl-10 mt-8 d-flex justify-content-center align-items-center gap-xxl-3 gap-2 flex-wrap">
-                        <li>
-                            <a href="javascript:void(0)" class="n0-bg cmn__icon40 fw_600 d-center radius100 cus-border border">
-                                <i class="ti ti-chevron-left fs-six"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)" class="n0-bg cmn__icon40 fw_600 d-center radius100 cus-border border">1</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)" class="n0-bg cmn__icon40 fw_600 d-center radius100 cus-border border">2</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)" class="n0-bg cmn__icon40 fw_600 d-center radius100 cus-border border">3</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)" class="n0-bg cmn__icon40 fw_600 d-center radius100 cus-border border">...</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)" class="n0-bg cmn__icon40 fw_600 d-center radius100 cus-border border">
-                                <i class="ti ti-chevron-right fs-six"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-lg-4">
-                    <div class="classic-blog-right cmn-rightclickbody topfixed">
-                        <div
-                            class="active-userbox n0-bg cus-border border radius16 py-xxl-8 py-xxl-6 py-4 px-xxl-8 px-xl-6 px-4 mb-xxl-6 mb-5">
-                            <h5 class="n700-color bb-n40dash pb-xxl-6 pb-5 mb-xxl-6 mb-5">
-                                Search
-                            </h5>
-                            <form action="#" class="search-toggle-box d-block">
-                                <div
-                                    class="input-area d-flex n20-bg align-items-center gap-2 py-1 px-6 py-lg-2 px-2 radius30">
-                                    <input type="text" class="px-4" placeholder="Search">
-                                    <button class="cmn-btn search__icon40">
-                                        <span>
-                                            <i class="fa-solid fa-magnifying-glass n4-color"></i>
-                                        </span>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                        <div
-                            class="classic-tabbox n0-bg cus-border border radius16 py-xxl-8 py-xxl-6 py-4 px-xxl-8 px-xl-6 px-4 mb-xxl-6 mb-5">
-                            <h5 class="n700-color bb-n40dash pb-xxl-6 pb-5 mb-xxl-6 mb-5">
-                                Category
-                            </h5>
-                            <ul class="classic-linktag bb-n40dash pb-xxl-6 pb-5 mb-xxl-5 mb-5 d-flex flex-wrap">
-                                <li class="w-100 mb-xxl-4 mb-3">
-                                    <a href="#"
-                                        class="d-flex w-100 align-items-center radius32 n20-bg py-xl-3 py-2 px-xxl-8 px-lg-4 px-3 gap-xxl-4 gap-3 fs20 fw_500 n700-color">
-                                        <span class="icon cmn__icon36 radius100 bg-primary d-center">
-                                            <!-- <img src="https://placehold.co/24" alt="img"> -->
-                                        </span>
-                                        HTML & CSS
-                                    </a>
-                                </li>
-                                <li class="w-100 mb-xxl-4 mb-3">
-                                    <a href="#"
-                                        class="d-flex w-100 align-items-center radius32 n20-bg py-xl-3 py-2 px-xxl-8 px-lg-4 px-3 gap-xxl-4 gap-3 fs20 fw_500 n700-color">
-                                        <span class="icon cmn__icon36 radius100 bg-primary d-center">
-                                            <!-- <img src="assets/images/icon/nodejs.png" alt="img"> -->
-                                        </span>
-                                        NodeJS Courses
-                                    </a>
-                                </li>
-                                <li class="w-100 mb-xxl-4 mb-3">
-                                    <a href="#"
-                                        class="d-flex w-100 align-items-center radius32 n20-bg py-xl-3 py-2 px-xxl-8 px-lg-4 px-3 gap-xxl-4 gap-3 fs20 fw_500 n700-color">
-                                        <span class="icon cmn__icon36 radius100 bg-primary d-center">
-                                            <!-- <img src="assets/images/icon/reactjs.png" alt="img"> -->
-                                        </span>
-                                        React Courses
-                                    </a>
-                                </li>
-                                <li class="w-100 mb-xxl-4 mb-3">
-                                    <a href="#"
-                                        class="d-flex w-100 align-items-center radius32 n20-bg py-xl-3 py-2 px-xxl-8 px-lg-4 px-3 gap-xxl-4 gap-3 fs20 fw_500 n700-color">
-                                        <span class="icon cmn__icon36 radius100 bg-primary d-center">
-                                            <!-- <img src="assets/images/icon/php.png" alt="img"> -->
-                                        </span>
-                                        PHP
-                                    </a>
-                                </li>
-                                <li class="w-100 mb-xxl-4 mb-3">
-                                    <a href="#"
-                                        class="d-flex w-100 align-items-center radius32 n20-bg py-xl-3 py-2 px-xxl-8 px-lg-4 px-3 gap-xxl-4 gap-3 fs20 fw_500 n700-color">
-                                        <span class="icon cmn__icon36 radius100 bg-primary d-center">
-                                            <!-- <img src="assets/images/icon/laravel.png" alt="img"> -->
-                                        </span>
-                                        Laravel Courses
-                                    </a>
-                                </li>
-                                <li class="w-100">
-                                    <a href="#"
-                                        class="d-flex w-100 align-items-center radius32 n20-bg py-xl-3 py-2 px-xxl-8 px-lg-4 px-3 gap-xxl-4 gap-3 fs20 fw_500 n700-color">
-                                        <span class="icon cmn__icon36 radius100 bg-primary d-center">
-                                            <!-- <img src="assets/images/icon/vuejs.png" alt="img"> -->
-                                        </span>
-                                        Vuejs Courses
-                                    </a>
-                                </li>
-                            </ul>
-                            <a href="#" class="d-inline-flex bbsolid-700 n700-color fw_600">
-                                See All
-                                <i class="ti ti-arrow-up-right fs-six"></i>
-                            </a>
-                        </div>
-                        <div
-                            class="classic-tabbox n0-bg cus-border border radius16 py-xxl-8 py-xxl-6 py-4 px-xxl-8 px-xl-6 px-4">
-                            <h5 class="n700-color bb-n40dash pb-xxl-6 pb-5 mb-xxl-6 mb-5">
-                                Popular Tag
-                            </h5>
-                            <ul
-                                class="allcourses-btn bb-n40dash pb-xxl-6 pb-5 mb-xxl-5 mb-5 d-flex flex-wrap gap-xxl-4 gap-3">
-                                <li>
-                                    <a href="#0">
-                                        UI/UX Design
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#0">
-                                        Web Development
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#0">
-                                        Python
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#0">
-                                        Laravel
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#0">
-                                        Wordpress
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#0">
-                                        Wordpress
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#0">
-                                        Machine Learning
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#0">
-                                        AI
-                                    </a>
-                                </li>
-                            </ul>
-                            <a href="#" class="d-inline-flex bbsolid-700 n700-color fw_600">
-                                See All
-                                <i class="ti ti-arrow-up-right fs-six"></i>
-                            </a>
-                        </div>
-                    </div>
+    <!-- courses community start -->
+    <section class="community-section pt-6 mb-20">
+        <div class="container container1600">
+            <div class="courses-detailswrap courses-detailswrap-v2 position-relative">
+                <div class="thumb-courses position-relative">
+                    <img src="assets/images/common/blog-details1.png" alt="img" class="w-100 radius32 ">
                 </div>
             </div>
         </div>
+        <div class="blog-detailswrap position-relative cmn__rightclick">
+            <div class="container">
+                <button type="button" class="clickhere-active mt-sm-9">
+                    <i class="ti ti-adjustments-horizontal fs-four fw-400"></i>
+                    Sidebar Toggle
+                </button>
+                <div class="row g-6">
+                    <div class="col-lg-8">
+                        <div class="courses-details-left pt-xl-15 pt-10">
+                            <!-- Loading Indicator -->
+                            <div id="loading" class="loading-spinner">
+                                Loading blog post...
+                            </div>
+        
+                            <!-- Error Message -->
+                            <div id="error-message" class="error-message hidden">
+                                Oops! The blog post was not found or an error occurred.
+                            </div>
+        
+                            <!-- Blog Post Details -->
+                            <div id="blog-post-details" class="hidden">
+                                <div class="n0-bg radius16 cus-border border py-xxl-8 py-xl-6 py-4 px-xxl-8 px-xl-6 px-4 mb-6">
+                                    <div class="sec__titletwo bb-n40dash pb-5 mb-5">
+                                        <div class="d-flex flex-wrap align-items-center mb-4 mb-xl-5 gap-xxl-4 gap-xl-3 gap-lg-2 gap-2">
+                                            <div class="d-flex align-items-center gap-xxl-2 gap-1">
+                                                <i class="ti ti-user-circle n500-color fs-six fw_400"></i>
+                                                <span class="fs-six fw_400 n500-color" id="post-author">By Admin</span>
+                                            </div>
+                                            <div class="d-flex cmn-dot2 align-items-center gap-xxl-2 gap-1">
+                                                <i class="ti ti-calendar-due n500-color fs-six fw_400"></i>
+                                                <span class="fs-six fw_400 n500-color" id="post-date">12 Sep, 2024</span>
+                                            </div>
+                                        </div>
+                                        <h2 class="two__title n700-color mb-4 mb-xl-5" id="post-title">
+                                            Blog Title
+                                        </h2>
+                                        <div id="post-image"></div>
+                                        <div id="post-content" class="fs-seven n700-color"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="blog-details-right mt-15 mt-sm-20 mt-lg-0 cmn-rightclickbody">
+                            <div class="active-userbox n0-bg cus-border border radius16 py-xxl-8 py-xxl-6 py-4 px-xxl-8 px-xl-6 px-4 mb-xxl-6 mb-5">
+                                <h5 class="n700-color bb-n40dash pb-xxl-6 pb-5 mb-xxl-6 mb-5">
+                                    More Related Blogs
+                                </h5>
+                                <form action="#" class="search-toggle-box d-block">
+                                    <div
+                                        class="input-area d-flex n20-bg align-items-center gap-2 py-1 px-6 py-lg-2 px-2 radius30">
+                                        <input type="text" class="px-4" placeholder="Search">
+                                        <button class="cmn-btn search__icon40">
+                                            <span>
+                                                <i class="fa-solid fa-magnifying-glass n4-color"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- <div class="latest-activities active-userbox n0-bg cus-border border radius16 py-xxl-8 py-xl-6 py-4 px-xxl-8 px-xl-6 px-4 mb-xxl-6 mb-5">
+                                <h5 class="n700-color bb-n40dash pb-xxl-6 pb-5 mb-xxl-6 mb-5">
+                                    More Instructor
+                                </h5>
+                                <a href="blog-details.html" class="latest-activiti-item d-flex align-items-center gap-xxl-6 gap-xl-3 gap-2 bb-n40dash pb-xxl-6 pb-5 mb-xxl-6 mb-5">
+                                    <img src="assets/images/common/tg8.png" alt="img" class="radius100 cmn__icon80">
+                                    <span class="cont">
+                                        <span class="fs20 mb-1 fw_600 n700-color d-flex align-items-center flex-wrap">
+                                            Demystifying Data Science
+                                        </span>
+                                        <span class="fs-seven">
+                                            23/10/23
+                                        </span>
+                                    </span>
+                                </a>
+                                <a href="blog-details.html" class="latest-activiti-item d-flex align-items-center gap-xxl-6 gap-xl-3 gap-2 bb-n40dash pb-xxl-6 pb-5 mb-xxl-6 mb-5">
+                                    <img src="assets/images/common/trending-co.png" alt="img" class="radius100 cmn__icon80">
+                                    <span class="cont">
+                                        <span class="fs20 mb-1 fw_600 n700-color d-flex align-items-center flex-wrap">
+                                            Crafting Compelling Presentations
+                                        </span>
+                                        <span class="fs-seven">
+                                            23/10/23
+                                        </span>
+                                    </span>
+                                </a>
+                                <a href="blog-details.html" class="latest-activiti-item d-flex align-items-center gap-xxl-6 gap-xl-3 gap-2 bb-n40dash pb-xxl-6 pb-5 mb-xxl-6 mb-5">
+                                    <img src="assets/images/common/tg3.png" alt="img" class="radius100 cmn__icon80">
+                                    <span class="cont">
+                                        <span class="fs20 mb-1 fw_600 n700-color d-flex align-items-center flex-wrap">
+                                            The Psychology of Learning: How Cognitive 
+                                        </span>
+                                        <span class="fs-seven">
+                                            23/10/23
+                                        </span>
+                                    </span>
+                                </a>
+                                <a href="blog-details.html" class="latest-activiti-item d-flex align-items-center gap-xxl-6 gap-xl-3 gap-2 bb-n40dash pb-xxl-6 pb-5 mb-xxl-6 mb-5">
+                                    <img src="assets/images/common/study-inner1.png" alt="img" class="radius100 cmn__icon80">
+                                    <span class="cont">
+                                        <span class="fs20 mb-1 fw_600 n700-color d-flex align-items-center flex-wrap">
+                                            The Future of Remote Work: Trends 
+                                        </span>
+                                        <span class="fs-seven">
+                                            23/10/23
+                                        </span>
+                                    </span>
+                                </a>
+                                <a href="blog-details.html" class="latest-activiti-item d-flex align-items-center gap-xxl-6 gap-xl-3 gap-2 bb-n40dash pb-xxl-6 pb-5 mb-xxl-6 mb-5">
+                                    <img src="assets/images/common/rc4.png" alt="img" class="radius100 cmn__icon80">
+                                    <span class="cont">
+                                        <span class="fs20 mb-1 fw_600 n700-color d-flex align-items-center flex-wrap">
+                                            The Role of Emotional Intelligence 
+                                        </span>
+                                        <span class="fs-seven">
+                                            23/10/23
+                                        </span>
+                                    </span>
+                                </a>
+                                <a href="blog-details.html" class="d-inline-flex bbsolid-700 n700-color fw_600">
+                                    See All
+                                    <i class="ti ti-arrow-up-right fs-six"></i>
+                                </a>
+                            </div>
+                            <div class="classic-tabbox n0-bg cus-border border radius16 py-xxl-8 py-xxl-6 py-4 px-xxl-8 px-xl-6 px-4">
+                                <h5 class="n700-color bb-n40dash pb-xxl-6 pb-5 mb-xxl-6 mb-5">
+                                    Popular Tag
+                                </h5>
+                                <ul class="allcourses-btn bb-n40dash pb-xxl-6 pb-5 mb-xxl-5 mb-5 d-flex flex-wrap gap-xxl-4 gap-3">
+                                    <li>
+                                        <a href="javascript:void(0)">
+                                            UI/UX Design
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">
+                                            Web Development
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">
+                                            Python
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">
+                                            Laravel
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">
+                                            Wordpress
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">
+                                            Machine Learning
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">
+                                            AI
+                                        </a>
+                                    </li>
+                                </ul>
+                                <a href="javascript:void(0)" class="d-inline-flex bbsolid-700 n700-color fw_600">
+                                    See All
+                                    <i class="ti ti-arrow-up-right fs-six"></i>
+                                </a>
+                            </div> -->
+                        </div>
+                    </div>
+                 </div>
+            </div>
+        </div>
     </section>
-    <!-- blog classic end -->
+    <!-- courses details end -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.10/purify.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        const postSlug = getQueryParam('slug');
+
+        const blogPostDetails = document.getElementById('blog-post-details');
+        const loadingIndicator = document.getElementById('loading');
+        const errorMessage = document.getElementById('error-message');
+
+        if (postSlug) {
+            const postApiUrl = `https://blog.hollywoodnorth.com/wp-json/wp/v2/posts?slug=${postSlug}&_embed`;
+
+            fetch(postApiUrl)
+                .then(response => response.json())
+                .then(posts => {
+                    if (posts.length > 0) {
+                        const post = posts[0];
+
+                        // Hide loading spinner
+                        loadingIndicator.classList.add('hidden');
+                        blogPostDetails.classList.remove('hidden');
+
+                        // Title
+                        document.getElementById('post-title').innerHTML = post.title.rendered;
+
+                        // Author
+                        const authorName = post._embedded.author[0].name;
+                        document.getElementById('post-author').textContent = `By ${authorName}`;
+
+                        // Date
+                        const postDate = new Date(post.date).toLocaleDateString();
+                        document.getElementById('post-date').textContent = postDate;
+
+                        // Featured Image
+                        if (post._embedded['wp:featuredmedia']) {
+                            const featuredMedia = post._embedded['wp:featuredmedia'][0];
+                            const imageUrl = featuredMedia.source_url;
+                            const imageAlt = featuredMedia.alt_text || post.title.rendered;
+                            document.getElementById('post-image').innerHTML = `<img src="${imageUrl}" alt="${imageAlt}" style="object-fit: cover; width: 100%; border-radius: 8px;">`;
+                        } else {
+                            document.getElementById('post-image').style.display = 'none';
+                        }
+
+                        // Content
+                        const sanitizedContent = DOMPurify.sanitize(post.content.rendered);
+                        document.getElementById('post-content').innerHTML = sanitizedContent;
+
+                    } else {
+                        showError();
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching post:', error);
+                    showError();
+                });
+
+        } else {
+            showError();
+        }
+
+        function showError() {
+            loadingIndicator.classList.add('hidden');
+            errorMessage.classList.remove('hidden');
+            blogPostDetails.classList.add('hidden');
+        }
+    });
+</script>
 
     <!-- subscribe start -->
-    <section class="subscribtion overflow-visible">
+    <section class="subscribtion">
         <div class="container">
-            <div class="subscribtion__wrap p11-bg radius16">
-                <div class="row g-4 justify-content-between">
-                    <div class="col-lg-6">
-                        <div class="subscrib__content">
-                            <h3 class="mb-3 mb-xl-4 text-white">
-                                Stay in the Loop
+            <div class="subscribtion__wrap p1-bg radius16"> 
+                <div class="row g-4 justify-content-center">
+                    <div class="col-xxl-5 col-xl-6 col-lg-8">
+                        <div class="subscrib__content text-center">
+                            <h3 class="mb-3 mb-xl-4">
+                                Subscribe for newsletters
                             </h3>
-                            <p class="n700-color mb-6 mb-xl-10 text-white">
-                                Don’t miss updates from Hollywood North Institute. Enter your email to stay connected to
-                                courses, blogs, and opportunities.
+                            <p class="n700-color mb-6 mb-xl-10">
+                                Subscribe Our Newsletter For Latest Updates
                             </p>
                             <form action="#0" class="mb-5 mb-xl-6 d-flex align-items-center">
                                 <input type="text" placeholder="Enter Email...">
@@ -652,27 +645,19 @@
                                     </span>
                                 </button>
                             </form>
-                            <div class="subscrib__check">
+                            <div class="subscrib__check d-flex justify-content-center">
                                 <label class="checkbox-single gap-2 gap-xl-3 d-flex align-items-center">
-                                    <span class="checkbox-area d-center text-white">
+                                    <span class="checkbox-area d-center">
                                         <input type="checkbox" checked="checked">
-                                        <span class="checkmark d-center text-white"></span>
+                                        <span class="checkmark d-center"></span>
                                     </span>
-                                    <span class="fs-seven n700-color text-white">
-                                        I agree with <a href="privacy.html" class="fw_600 text-white">privacy policy</a>
-                                        and <a href="#0" class="fw_600 text-white">terms</a>
+                                    <span class="fs-seven n700-color">
+                                        I agree with <a href="privacy.html" class="fw_600 n700-color">privacy policy</a> and <a href="#0" class="fw_600 n700-color">terms</a>
                                     </span>
                                 </label>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-5">
-
-                    </div>
-                </div>
-                <div class="subscribe__thumb2">
-                    <img src="https://res.cloudinary.com/df2fe2yzk/image/upload/w_500/v1734627617/Hollywood_North_website_design_elements-03_luwzrs.webp"
-                        alt="img">
                 </div>
             </div>
         </div>
@@ -816,6 +801,7 @@
         </div>
     </footer>
     <!-- footer end -->
+
 
     <!-- ==== js dependencies start ==== -->
     <script src="assets/js/plugins/plugins.js"></script>
