@@ -10508,6 +10508,11 @@ iframe {
   object-fit: cover;
 }
 
+.blogImg-Home{
+  height: 350px;
+  object-fit: cover;
+}
+
 
 .box-enroll{
   height:300px;
