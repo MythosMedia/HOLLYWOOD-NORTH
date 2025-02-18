@@ -10563,3 +10563,76 @@ iframe {
   text-align: left;
   margin-left: 0;
 }
+
+
+.diagram-container-bg {
+  background-image: url('https://res.cloudinary.com/df2fe2yzk/image/upload/v1739838745/Hollywood_north_background-04_1_zchyta.webp'); /* Replace with actual path */
+  background-size: cover; /* Ensures the image covers the whole container */
+  background-position: center; /* Centers the background */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  padding: 60px 90px; /* Adds padding for spacing */
+}
+
+
+.diagram-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+.level {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 20px 0;
+}
+.box-diagram {
+  position: relative;
+  background-color: #002147;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  min-width: 250px;
+  cursor: pointer;
+  text-align: center;
+}
+.box-diagram.dark {
+  background-color: black;
+}
+.connector {
+  width: 2px;
+  background-color: #3666a1;
+  height: 20px;
+  margin: 0 auto;
+}
+.popup {
+  display: none;
+  position: absolute;
+  bottom: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+  width: 200px;
+  text-align: center;
+  z-index: 10;
+}
+.box-diagram:hover .popup,
+.popup:hover {
+  display: block;
+}
+.popup a {
+  display: block;
+  margin-top: 5px;
+  color: #153a6e;
+  text-decoration: none;
+  font-weight: bold;
+}
