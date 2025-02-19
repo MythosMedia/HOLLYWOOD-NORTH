@@ -10636,3 +10636,16 @@ iframe {
   text-decoration: none;
   font-weight: bold;
 }
+
+/*  */
+
+.close-sidebar {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 35px;
+  cursor: pointer;
+  color: #333;
+}
