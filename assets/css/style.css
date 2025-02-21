@@ -10673,6 +10673,7 @@ iframe {
 
 /* Mobile Hero Section */
 .mobile-hero {
+  margin-top: -2px;
   position: relative;
   width: 100vw;
   height: 100vh;
