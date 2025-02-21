@@ -10675,7 +10675,7 @@ iframe {
 .mobile-hero {
   position: relative;
   width: 100vw;
-  height: 90vh;
+  height: 100vh;
   background: url('https://res.cloudinary.com/df2fe2yzk/image/upload/v1740129410/Hollywod_north_mobile_version-05-min-compressed_o3r7vp.webp') no-repeat center center/cover;
   display: flex;
   align-items: center;
