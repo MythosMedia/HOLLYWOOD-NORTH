@@ -10508,9 +10508,15 @@ iframe {
   object-fit: cover;
 }
 
-.blogImg-Home{
+.blogImg-Home {
   height: 350px;
   object-fit: cover;
+}
+
+@media (max-width: 767.98px) { /* Targeting small devices */
+  .blogImg-Home,.blogImg {
+    height: auto;
+  }
 }
 
 
