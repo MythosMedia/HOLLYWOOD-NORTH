@@ -10721,3 +10721,7 @@ iframe {
       padding-right: 18px !important;
   }
 }
+
+#post-content a{
+  color: #5f9be3;
+}
