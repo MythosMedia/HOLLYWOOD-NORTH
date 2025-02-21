@@ -10659,47 +10659,57 @@ iframe {
   padding-right: 18px;
 }
 
-/* Default: Hide Mobile Version */
-.mobile-version {
-  display: none;
+
+
+/* Hide Desktop & Tablet Section on Mobile */
+@media (max-width: 768px) {
+  .desktop-tablet-only {
+      display: none !important;
+  }
 }
 
-/* Show Mobile Version and Hide Desktop on Small Screens */
-@media (max-width: 768px) {
-  .desktop-version {
-      display: none;
-  }
-  .mobile-version {
-      display: block;
-      text-align: center;
-      padding: 20px;
-  }
-  .mobile-title {
-      font-size: 28px;
-      font-weight: bold;
-  }
-  .highlight {
-      color: #4A90E2;
-  }
-  .subtitle {
-      font-size: 18px;
-      margin-bottom: 20px;
-  }
-  .mobile-image {
-      max-width: 100%;
-      border-radius: 10px;
-  }
-  .mobile-btn {
-      display: inline-block;
-      padding: 10px 20px;
-      background: #4A90E2;
-      color: white;
-      font-size: 16px;
-      border-radius: 20px;
-      text-decoration: none;
-  }
-  .trust-info {
-      margin-top: 15px;
-      font-size: 14px;
-  }
+
+
+
+/* Mobile Hero Section */
+.mobile-hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: url('https://res.cloudinary.com/df2fe2yzk/image/upload/v1740129410/Hollywod_north_mobile_version-05-min-compressed_o3r7vp.webp') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.mobile-hero-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay for readability */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.mobile-hero h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.mobile-hero p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.excellent-truspot-2{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
