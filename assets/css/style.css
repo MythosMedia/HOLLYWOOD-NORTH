@@ -10714,3 +10714,10 @@ iframe {
   left: 0;
   right: 0;
 }
+
+@media (max-width: 767.98px) {
+  .mobile-padding {
+      padding-left: 18px !important;
+      padding-right: 18px !important;
+  }
+}
