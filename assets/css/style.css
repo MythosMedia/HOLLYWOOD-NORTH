@@ -10559,7 +10559,8 @@ iframe {
   background-color: #5f9be3 !important;
 }
 .support-btn {
-  width: 350px;
+  max-width: 350px;
+  width: 80%;
   text-align: left;
   margin-left: 0;
 }
