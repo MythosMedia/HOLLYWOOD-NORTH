@@ -10681,6 +10681,9 @@ iframe {
   .desktop-tablet-only {
       display: none !important;
   }
+  .diagram-container-bg2{
+    padding: 30px 17px;
+  }
 }
 
 
