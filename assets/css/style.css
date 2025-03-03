@@ -10580,6 +10580,14 @@ iframe {
   padding: 60px 90px; /* Adds padding for spacing */
 }
 
+.diagram-container-bg2 {
+  background-image: url('https://res.cloudinary.com/df2fe2yzk/image/upload/v1739838745/Hollywood_north_background-04_1_zchyta.webp'); /* Replace with actual path */
+  background-size: cover; /* Ensures the image covers the whole container */
+  background-position: center; /* Centers the background */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  padding: 30px 50px; /* Adds padding for spacing */
+}
+
 
 .diagram-container {
   display: flex;
