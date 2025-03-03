@@ -382,7 +382,7 @@
             </ul>
             <button type="button" class="clickhere-active mb-6">
                 <i class="ti ti-adjustments-horizontal fs-four fw-400"></i>
-                Sidebar Toggle
+                Activate Enrolment
             </button>
             <div class="row g-6">
                 <div class="col-lg-8">
@@ -758,6 +758,16 @@
                                 <div
                                     class="cmn-course-review pt-xxl-5 pt-4 bb-704 pb-xxl-5 pb-4 d-flex align-items-center justify-content-between gap-2">
                                     <div class="d-flex n500-color fw_400 fs-six align-items-center gap-xxl-3 gap-1">
+                                        <i class="fa-solid fa-earth-americas"></i>
+                                        Type
+                                    </div>
+                                    <span class="fs-six fw_500 n700-color">
+                                        Remote
+                                    </span>
+                                </div>
+                                <div
+                                    class="cmn-course-review pt-xxl-5 pt-4 bb-704 pb-xxl-5 pb-4 d-flex align-items-center justify-content-between gap-2">
+                                    <div class="d-flex n500-color fw_400 fs-six align-items-center gap-xxl-3 gap-1">
                                         <i class="ti ti-user-circle n700-color fw_400 fs-five"></i>
                                         Instructor
                                     </div>
@@ -777,13 +787,15 @@
                                 </div>
 
 
-                                <a href="#0"
-                                    class="cmn-btn mt-xxl-8 mt-6 mb-xxl-6 mb-5 fw_600 justify-content-center d-flex align-items-center gap-2 py-3 px-3 n700-color">
-                                    <span>
-                                        enrollment Closed
-                                    </span>
-                                    <!-- <i class="ti ti-arrow-up-right fs-six"></i> -->
-                                </a>
+                                <div
+                                    class=" justify-content-center d-flex align-items-center gap-2 py-3 px-3 n700-color">
+                                    <script async src="https://js.stripe.com/v3/buy-button.js">
+                                    </script>
+                                    <stripe-buy-button buy-button-id="buy_btn_1QluevRsaK7CkPWpanxYoRh4"
+                                        publishable-key="pk_live_51QlsVtRsaK7CkPWpXwZnYGf77jF1mZYtu5rY0pCkjn6UzntWJp8UWOlYDOn4FOi8IvzhUwCZKZicxd8qR1go4mf900jSndcC34">
+                                    </stripe-buy-button>
+
+                                </div>
                                 <ul
                                     class="enroll-soc pb-xxl-4 pb-2 d-flex justify-content-center align-items-center gap-xxl-6 gap-4">
                                     <li>

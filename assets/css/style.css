@@ -7562,7 +7562,7 @@ iframe {
 }
 .excelent-box .excel-skill .world-cup {
   position: absolute;
-  top: 40px;
+  top: -2px;
   left: 50%;
   transform: translate(-50%);
 }
@@ -8290,7 +8290,7 @@ iframe {
 .subscrib__content form input {
   width: 100%;
   box-shadow: none;
-  color: var(--n0);
+  color:#3666a1;
   font-size: 14px;
   outline: none;
   padding: 0 32px;
