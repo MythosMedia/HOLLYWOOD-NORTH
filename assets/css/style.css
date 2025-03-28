@@ -10744,3 +10744,15 @@ iframe {
   color: #5f9be3;
 }
 
+.calendly-btn{
+  font-weight:bold;
+  color:#5f9be3;
+  z-index: 555; 
+  border: 1px solid #5f9be3; 
+  padding: 10px;
+  border-radius: 100px;
+}
+.calendly-btn:hover{
+  background-color: #5f9be3;
+  color: white !important;
+}
