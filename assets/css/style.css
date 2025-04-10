@@ -841,7 +841,7 @@ select {
 
 .tr__posi {
   position: absolute !important;
-  top: 0;
+  top: -60px;
   right: 0;
 }
 
@@ -5411,7 +5411,7 @@ iframe {
 
 .hero__seven {
   overflow: hidden;
-  background: rgba(47, 167, 95, 0.05);
+  background: #f5f6f7af;
 }
 
 .bn7__content {
@@ -6472,7 +6472,7 @@ iframe {
   height: 100%;
   inset: 0;
   opacity: 0.75;
-  background: var(--bg-color-bg-color-01, #1C1D20);
+  background: #5f9be3;
 }
 .journy-inner::after {
   position: absolute;
