@@ -6462,7 +6462,7 @@ iframe {
 }
 
 .journy-inner {
-  background: url(../../assets/images/common/journy-inner.png) no-repeat center center;
+  background: url("https://res.cloudinary.com/df2fe2yzk/image/upload/v1744799640/HNS_image-01-min_vodasc.webp") no-repeat center center;
   background-size: cover;
 }
 .journy-inner::before {
@@ -6472,7 +6472,7 @@ iframe {
   height: 100%;
   inset: 0;
   opacity: 0.75;
-  background: #5f9be3;
+  background: #5f9ae386;
 }
 .journy-inner::after {
   position: absolute;
