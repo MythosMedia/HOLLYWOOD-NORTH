@@ -55,6 +55,11 @@
 
     <!-- Styles & Other Scripts -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Calendly link widget begin -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    <!-- Calendly link widget end -->
+
 </head>
 
 
@@ -400,9 +405,12 @@
                         </p>
                     </div>
                     <div class="col-lg-6 col-md-4 col-sm-3 ms-auto d-flex justify-content-sm-end">
-                        <a href="programs.html" class="radius100 journy-roaate cmn__icon100 bg-white d-center">
+                        <a href="#"
+                            onclick="Calendly.initPopupWidget({url: 'https://calendly.com/learn-hollywoodnorth/free-audio-engineering-workshop?hide_event_type_details=1&hide_gdpr_banner=1&text_color=000000&primary_color=3666a1'}); return false;"
+                            class="radius100 journy-roaate cmn__icon100 bg-white d-center">
                             <i class="ti ti-arrow-up-right n700-color fs-three"></i>
                         </a>
+
                     </div>
                 </div>
             </div>
