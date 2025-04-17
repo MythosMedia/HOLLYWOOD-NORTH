@@ -10756,3 +10756,6 @@ iframe {
   background-color: #5f9be3;
   color: white !important;
 }
+#post-content span{
+  display: inline !important;
+}
