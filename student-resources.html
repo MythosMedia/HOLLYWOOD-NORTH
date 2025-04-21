@@ -239,7 +239,7 @@
                                                 </li>
                                             </ul> -->
                                         </li>
-                                          <li class="menu-item position-relative">
+                                        <li class="menu-item position-relative">
                                             <a href="/industry.html" class="itembg__1 pe-5 fw_500 n500-color cus-z1">
                                                 Industry
                                             </a>
@@ -441,14 +441,19 @@
 
                             </p>
                         </div>
-                        <form action="#0" class="writere-v1">
+                        <!-- Include EmailJS SDK -->
+                        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+                        <!-- Booking Form -->
+                        <form id="bookingForm" class="writere-v1">
                             <div class="row g-6">
                                 <div class="col-lg-12">
                                     <div class="form-cmn d-flex align-items-center">
                                         <div class="img50 n20-bg radius100 d-center icon">
                                             <i class="ti ti-user-circle fs20 fw_400 n200-color"></i>
                                         </div>
-                                        <input type="text" placeholder="Enter Name" id="names">
+                                        <input type="text" name="name" placeholder="Enter Name" id="bookingName"
+                                            required>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
@@ -456,21 +461,81 @@
                                         <div class="img50 n20-bg radius100 d-center icon">
                                             <i class="ti ti-mail fs20 fw_400 n200-color"></i>
                                         </div>
-                                        <input type="email" placeholder="Enter Email" id="names2">
+                                        <input type="email" name="email" placeholder="Enter Email" id="bookingEmail"
+                                            required>
                                     </div>
                                 </div>
-
                                 <div class="col-lg-12">
                                     <button type="submit"
                                         class="cmn-btn fw_600 justify-content-center d-flex align-items-center gap-2 py-3 px-xl-6 px-5 n700-color">
-                                        <span>
-                                            Book Now
-                                        </span>
+                                        <span>Book Now</span>
                                         <i class="ti ti-arrow-up-right fs-six"></i>
                                     </button>
                                 </div>
                             </div>
                         </form>
+
+                        <!-- Notification Popup -->
+                        <div id="notification" class="notification">
+                            <p id="notificationMessage"></p>
+                        </div>
+
+                        <!-- Notification Styles (reuse from original) -->
+                        <style>
+                            .notification {
+                                display: none;
+                                position: fixed;
+                                bottom: 20px;
+                                right: 20px;
+                                background: #28a745;
+                                color: white;
+                                padding: 15px 20px;
+                                border-radius: 8px;
+                                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                                transition: all 0.3s ease-in-out;
+                                font-size: 16px;
+                                font-weight: bold;
+                                z-index: 1000;
+                            }
+
+                            .notification.error {
+                                background: #dc3545;
+                            }
+                        </style>
+
+                        <!-- EmailJS Script -->
+                        <script>
+                            document.addEventListener("DOMContentLoaded", function () {
+                                emailjs.init("qdbYK3g0i8kjdwnft"); // Your EmailJS Public Key
+
+                                document.getElementById("bookingForm").addEventListener("submit", function (event) {
+                                    event.preventDefault();
+
+                                    emailjs.sendForm("service_492jfo6", "template_i72f5ug", this)
+                                        .then(() => {
+                                            showNotification("✅ Booking request sent!", "success");
+                                            this.reset();
+                                        })
+                                        .catch(() => {
+                                            showNotification("❌ Failed to send booking. Please try again.", "error");
+                                        });
+                                });
+                            });
+
+                            function showNotification(message, type) {
+                                const notification = document.getElementById("notification");
+                                const messageBox = document.getElementById("notificationMessage");
+
+                                messageBox.innerText = message;
+                                notification.className = "notification " + (type === "error" ? "error" : "success");
+                                notification.style.display = "block";
+
+                                setTimeout(() => {
+                                    notification.style.display = "none";
+                                }, 3000);
+                            }
+                        </script>
+
                     </div>
                 </div>
                 <div class="col-lg-5">
