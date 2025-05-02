@@ -5700,7 +5700,6 @@ iframe {
   max-width: unset;
 }
 .bn9-thumb::before {
-  border-radius: 25px;
   position: absolute;
   content: "";
   width: 764px;
