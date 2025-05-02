@@ -751,16 +751,15 @@
     </section>
     <!-- online courses end -->
 
-    <!-- subscribe start -->
-    <section class="subscribtion overflow-visible n20-bg pb-20 position-relative">
+    <section class="subscribtion n20-bg pb-20 position-relative">
         <div class="container position-relative">
-            <div class="subscribtion__wrap p11-bg radius16 position-relative" style="overflow: hidden;">
+            <div class="subscribtion__wrap p11-bg radius16 position-relative overflow-hidden">
 
-                <!-- Positioned Image -->
+                <!-- Image: Stick to bottom -->
                 <div class="subscribtion__image position-absolute d-none d-lg-block"
-                    style=" top: 190px; transform: translateY(-50%); z-index: 1;">
+                    style="bottom: 0; left: 0; z-index: 1;">
                     <img src="https://res.cloudinary.com/df2fe2yzk/image/upload/v1744330012/freepik__caucasian-woman-25-years-old-with-brown-hair-weari__58789-min_bfnywv.webp"
-                        alt="Subscribe Image" class="img-fluid radius16" style="max-width: 392px; height: auto;">
+                        alt="Subscribe Image" class="img-fluid radius16 subscribtion-image-responsive">
                 </div>
 
                 <!-- Form Content -->
@@ -768,9 +767,7 @@
                     <div class="col-lg-6 offset-lg-4 col-md-12">
                         <div class="subscrib__content mx-auto py-5 px-4 px-lg-5"
                             style="max-width: 600px; position: relative; z-index: 2;">
-                            <h3 class="mb-3 mb-xl-4 text-white">
-                                Get 10% Off by Email
-                            </h3>
+                            <h3 class="mb-3 mb-xl-4 text-white">Get 10% Off by Email</h3>
                             <p class="n700-color mb-6 mb-xl-10 text-white">
                                 Send us an email to claim 10% off your first course. A simple step to start your sound
                                 journey.
@@ -804,15 +801,45 @@
 
 
 
-    <!-- Responsive Floating Image Style -->
+
     <style>
+        .subscribtion__wrap {
+            overflow: hidden; /* Clip anything beyond the bottom */
+            position: relative;
+        }
+    
+        .subscribtion__image {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+        }
+    
+        .subscribtion__image img {
+            max-width: 322px;
+            height: auto;
+        }
+    
+        /* Responsive sizes */
+        @media (max-width: 1199.98px) {
+            .subscribtion__image img {
+                max-width: 320px;
+            }
+        }
+    
+        @media (max-width: 1024px) {
+            .subscribtion__image img {
+                max-width: 260px;
+            }
+        }
+    
         @media (max-width: 991.98px) {
             .subscribtion__image {
                 display: none !important;
             }
         }
     </style>
-    <!-- subscribe end -->
+    
 
 
 
