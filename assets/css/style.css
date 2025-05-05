@@ -5690,7 +5690,7 @@ iframe {
 }
 
 .bn9-thumb {
-  padding-bottom: 36px;
+  /* padding-bottom: 36px; */
 }
 .bn9-thumb .banner4__video {
   position: absolute;
@@ -5700,16 +5700,15 @@ iframe {
 .bn9-thumb .mimg {
   max-width: unset;
 }
-.bn9-thumb::before {
+/* .bn9-thumb::before {
   position: absolute;
   content: "";
   width: 764px;
   height: 94%;
   border: 1px solid var(--n50);
   left: -20px;
-  /* z-index: 1; */
   top: 32px;
-}
+} */
 @media (max-width: 1399px) {
   .bn9-thumb {
     padding-bottom: 0px;
