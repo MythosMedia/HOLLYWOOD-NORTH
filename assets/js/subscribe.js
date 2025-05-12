@@ -40,15 +40,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   subscribeForms.forEach(form => {
     const emailInput = form.querySelector('[name="email"]');
-    const toastSuccess = form.querySelector('[data-toast-success]');
-    const toastError = form.querySelector('[data-toast-error]');
 
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
-
-      // Reset toast messages
-      if (toastSuccess) toastSuccess.style.display = 'none';
-      if (toastError) toastError.style.display = 'none';
 
       try {
         const response = await fetch(form.action, {
@@ -66,14 +60,9 @@ document.addEventListener('DOMContentLoaded', () => {
           showToast('❌ Failed to subscribe. Try again.', 'error');
         }
       } catch (err) {
-        if (toastError) {
-          toastError.style.display = 'block';
-          toastError.textContent = '❌ Network error.';
-        }
+        showToast('❌ Network error.', 'error');
         console.error('Subscription error:', err);
       }
     });
   });
-
-  
 });
