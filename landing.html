@@ -680,13 +680,71 @@
                             <p class="n700-color mb-6 mb-xl-10 text-white">
                                 Send us an email to claim 10% off your first course. A simple step to start your sound
                                 journey.
-                            </p>
-                            <form action="#0" class="mb-5 mb-xl-6 d-flex align-items-center">
-                                <input type="text" placeholder="Enter Email..." class="me-2">
-                                <button class="d-center btn__v4">
+                            </p> 
+                            <form id="subscribeForm" class="mb-5 mb-xl-6 d-flex align-items-center" action="subscribe.php" method="POST">
+                                <input type="email" name="email" placeholder="Enter Email..." class="me-2" required>
+                                <button type="submit" class="d-center btn__v4">
                                     <span><i class="ti ti-send n0-color"></i></span>
                                 </button>
                             </form>
+                            
+                            <!-- ✅ Success Modal -->
+                            <div id="subscribeSuccess" style="
+                                display: none;
+                                position: fixed;
+                                top: 30%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                background: white;
+                                color: #1d3e89;
+                                padding: 30px 40px;
+                                border-radius: 10px;
+                                box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+                                z-index: 9999;
+                                text-align: center;
+                            ">
+                                <h5 style="margin: 0; font-weight: 600;">✅ Email Sent Successfully</h5>
+                                <p style="margin-top: 10px;">You’ll receive your 10% discount shortly.</p>
+                            </div>
+                            
+                            <script>
+                                document.getElementById("subscribeForm").addEventListener("submit", function(e) {
+                                    e.preventDefault();
+                                
+                                    const form = e.target;
+                                    const formData = new FormData(form);
+                                
+                                    fetch("/subscribe.php", {
+                                        method: "POST",
+                                        body: formData
+                                    })
+                                    .then(res => res.text())
+                                    .then(data => {
+                                        if (data.trim() === "success") {
+                                            // Show success modal
+                                            const modal = document.getElementById("subscribeSuccess");
+                                            modal.style.display = "block";
+                                
+                                            form.reset();
+                                
+                                            setTimeout(() => {
+                                                modal.style.display = "none";
+                                            }, 5000);
+                                        } else if (data.trim() === "invalid_email") {
+                                            alert("⚠️ Please enter a valid email address.");
+                                        } else {
+                                            alert("❌ Something went wrong. Please try again.");
+                                        }
+                                    })
+                                    .catch(error => {
+                                        console.error("Error:", error);
+                                        alert("❌ Network error. Please try again.");
+                                    });
+                                });
+                                </script>
+                                
+                            
+                            
                             <div class="subscrib__check d-flex justify-content-start">
                                 <label class="checkbox-single gap-2 gap-xl-3 d-flex align-items-center">
                                     <span class="checkbox-area d-center text-white">
