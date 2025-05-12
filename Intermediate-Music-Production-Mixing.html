@@ -1060,14 +1060,20 @@ text-align: center;
                             <p class="n700-color mb-6 mb-xl-10">
                                 Subscribe to Our Newsletter for the Latest Updates
                             </p>
-                            <form action="#0" class="mb-5 mb-xl-6 d-flex align-items-center">
-                                <input type="text" placeholder="Enter Email...">
-                                <button class="d-center btn__v4">
-                                    <span>
-                                        <i class="ti ti-send n0-color"></i>
-                                    </span>
+                               <form method="POST" action="newsletters.php" data-subscribe-form class="d-flex align-items-center">
+                                <input type="email" name="email" placeholder="Enter Email..." required>
+                                <button type="submit" class="d-center btn__v4">
+                                  <span><i class="ti ti-send n0-color"></i></span>
                                 </button>
-                            </form>
+                              
+                                <!-- Toasts linked by data attributes -->
+                                <div data-toast-success style="display: none; color: green; margin-left: 10px;">
+                                  ✅ Thank you! You’ve been subscribed.
+                                </div>
+                                <div data-toast-error style="display: none; color: red; margin-left: 10px;">
+                                  ❌ Something went wrong.
+                                </div>
+                              </form>
                             <div class="subscrib__check d-flex justify-content-center">
                                 <label class="checkbox-single gap-2 gap-xl-3 d-flex align-items-center">
                                     <span class="checkbox-area d-center">
@@ -1237,7 +1243,8 @@ text-align: center;
     <script src="assets/js/plugins/plugin-custom.js"></script>
     <script src="assets/js/apexcharts.js"></script>
     <script src="assets/js/plugins/aos.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/main.js"></script><div id="toast-container" style="position: fixed; top: 20px; right: 20px; z-index: 9999;"></div>
+
 
 </body>
 
