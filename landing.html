@@ -749,41 +749,7 @@
                                 <p style="margin-top: 10px;">You’ll receive your 10% discount shortly.</p>
                             </div>
 
-                            <script>
-                                document.getElementById("subscribeForm").addEventListener("submit", function (e) {
-                                    e.preventDefault();
-
-                                    const form = e.target;
-                                    const formData = new FormData(form);
-
-                                    fetch("/subscribe.php", {
-                                        method: "POST",
-                                        body: formData
-                                    })
-                                        .then(res => res.text())
-                                        .then(data => {
-                                            if (data.trim() === "success") {
-                                                // Show success modal
-                                                const modal = document.getElementById("subscribeSuccess");
-                                                modal.style.display = "block";
-
-                                                form.reset();
-
-                                                setTimeout(() => {
-                                                    modal.style.display = "none";
-                                                }, 5000);
-                                            } else if (data.trim() === "invalid_email") {
-                                                alert("⚠️ Please enter a valid email address.");
-                                            } else {
-                                                alert("❌ Something went wrong. Please try again.");
-                                            }
-                                        })
-                                        .catch(error => {
-                                            console.error("Error:", error);
-                                            alert("❌ Network error. Please try again.");
-                                        });
-                                });
-                            </script>
+                           
 
 
 
