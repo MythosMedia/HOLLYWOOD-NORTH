@@ -1,39 +1,24 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const subscribeForms = document.querySelectorAll('[data-subscribe-form]');
-  
-    subscribeForms.forEach(form => {
-      const emailInput = form.querySelector('[name="email"]');
-      const successDiv = form.querySelector('[data-subscribe-success]');
-      const errorDiv = form.querySelector('[data-subscribe-error]');
-  
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
+document.getElementById('subscribeForm').addEventListener('submit', async function (e) {
+  e.preventDefault();
 
-        // Reset messages
-        if (successDiv) successDiv.style.display = 'none';
-        if (errorDiv) errorDiv.style.display = 'none';
-  
-        try {
-          const response = await fetch('http://145.79.0.55/subscribe', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email: emailInput.value })
-          });
-  
-          const result = await response.json();
-  
-          if (response.ok) {
-            if (successDiv) successDiv.style.display = 'block';
-            form.reset();
-          } else {
-            if (errorDiv) errorDiv.style.display = 'block';
-            console.error('❌ Subscription error:', result);
-          }
-        } catch (err) {
-          if (errorDiv) errorDiv.style.display = 'block';
-          console.error('❌ Network error:', err);
-        }
-      });
+  const form = e.target;
+  const email = form.email.value;
+  const messageBox = document.getElementById('subscribeMessage');
+
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({ email })
     });
-  });
-  
+
+    const result = await response.json();
+    messageBox.textContent = result.message;
+    messageBox.style.color = result.success ? 'green' : 'red';
+
+    if (result.success) form.reset();
+  } catch (error) {
+    messageBox.textContent = '❌ Network error';
+    messageBox.style.color = 'red';
+  }
+});
