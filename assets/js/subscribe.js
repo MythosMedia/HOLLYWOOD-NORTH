@@ -5,7 +5,6 @@ function showToast(message, type = 'success') {
   const toast = document.createElement('div');
   toast.textContent = message;
 
-  // Styling
   toast.style.backgroundColor = type === 'success' ? '#4BB543' : '#ff4d4f';
   toast.style.color = '#fff';
   toast.style.padding = '12px 20px';
@@ -19,13 +18,11 @@ function showToast(message, type = 'success') {
 
   container.appendChild(toast);
 
-  // Fade in
   setTimeout(() => {
     toast.style.opacity = '1';
     toast.style.transform = 'translateY(0)';
   }, 100);
 
-  // Auto-remove after 4s
   setTimeout(() => {
     toast.style.opacity = '0';
     toast.style.transform = 'translateY(-10px)';
@@ -47,17 +44,20 @@ document.addEventListener('DOMContentLoaded', () => {
       try {
         const response = await fetch(form.action, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams({ email: emailInput.value })
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ email: emailInput.value })
         });
 
-        const result = await response.text();
+        const result = await response.json();
 
-        if (result === 'success') {
+        if (response.ok) {
           showToast('✅ Subscribed successfully!', 'success');
           form.reset();
         } else {
-          showToast('❌ Failed to subscribe. Try again.', 'error');
+          const error = result?.error || '❌ Failed to subscribe.';
+          showToast(error, 'error');
         }
       } catch (err) {
         showToast('❌ Network error.', 'error');
