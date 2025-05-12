@@ -1571,45 +1571,61 @@
                                 Don’t miss updates from Hollywood North Sound Institute. Enter your email to stay
                                 connected to courses, blogs, and opportunities.
                             </p>
-                            <form id="subscribeForm" method="POST" action="newsletters.php"
-                                class="mb-5 mb-xl-6 d-flex align-items-center">
+                            <form id="subscribeForm" method="POST" action="newsletters.php" class="mb-5 mb-xl-6 d-flex align-items-center">
                                 <input type="email" id="emailInput" name="email" placeholder="Enter Email..." required>
                                 <button type="submit" class="d-center btn__v4">
-                                    <span>
-                                        <i class="ti ti-send n0-color"></i>
-                                    </span>
+                                  <span>
+                                    <i class="ti ti-send n0-color"></i>
+                                  </span>
                                 </button>
-                                <div data-subscribe-success style="display: none; color: green;">✅ Subscribed
-                                    successfully!</div>
-                                <div data-subscribe-error style="display: none; color: red;">❌ Failed to subscribe. Try
-                                    again.</div>
-                            </form>
-                            <script>
+                              
+                                <!-- Success & error messages -->
+                                <div data-subscribe-success style="display: none; color: green; margin-left: 10px;">
+                                  ✅ Subscribed successfully!
+                                </div>
+                                <div data-subscribe-error style="display: none; color: red; margin-left: 10px;">
+                                  ❌ Failed to subscribe. Try again.
+                                </div>
+                              </form>
+                              
+                              <script>
                                 document.getElementById('subscribeForm').addEventListener('submit', async function (e) {
                                   e.preventDefault();
-                                
+                              
                                   const form = e.target;
                                   const email = form.email.value;
-                                  const messageBox = document.getElementById('subscribeMessage');
-                                
+                                  const successDiv = form.querySelector('[data-subscribe-success]');
+                                  const errorDiv = form.querySelector('[data-subscribe-error]');
+                              
+                                  // Reset message states
+                                  successDiv.style.display = 'none';
+                                  errorDiv.style.display = 'none';
+                              
                                   try {
                                     const response = await fetch(form.action, {
                                       method: 'POST',
                                       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                                       body: new URLSearchParams({ email })
                                     });
-                                
+                              
                                     const result = await response.json();
-                                    messageBox.textContent = result.message;
-                                    messageBox.style.color = result.success ? 'green' : 'red';
-                                
-                                    if (result.success) form.reset();
+                              
+                                    if (result.success) {
+                                      successDiv.style.display = 'block';
+                                      successDiv.textContent = result.message;
+                                      form.reset();
+                                    } else {
+                                      errorDiv.style.display = 'block';
+                                      errorDiv.textContent = result.message || '❌ Subscription failed.';
+                                    }
                                   } catch (error) {
-                                    messageBox.textContent = '❌ Network error';
-                                    messageBox.style.color = 'red';
+                                    errorDiv.style.display = 'block';
+                                    errorDiv.textContent = '❌ Network error';
+                                    console.error('Subscription error:', error);
                                   }
                                 });
-                                </script>
+                              </script>
+                              
                                 
 
                             <!-- Confirmation message -->
