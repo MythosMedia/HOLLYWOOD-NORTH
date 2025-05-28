@@ -1278,6 +1278,71 @@ select {
   z-index: 1;
   font-weight: 600;
 }
+
+.cmn-out-btn {
+  font-size: 16px;
+  font-weight: 600;
+  transition: var(--transition);
+  text-transform: capitalize;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.cmn-out-btn span {
+  transition: all 0.4s;
+  position: relative;
+  color: #000000;
+  z-index: 1;
+  font-weight: 600;
+}
+
+.cmn-out-btn::after, .cmn-out-btn::before {
+  content: "";
+  position: absolute;
+  transition: var(--transition);
+}
+
+.cmn-out-btn::before {
+  width: 100%;
+  height: 100%;
+  background-color: var(--n1);
+  top: 5px;
+  border-radius: 100px;
+  left: 0;
+} 
+
+ .cmn-out-btn::after {
+  width: 100%;
+  height: 100%;
+  border: 1px solid black;
+  background-color: var(--n0);
+  top: 0;
+  border-radius: 100px;
+  left: 0;
+}
+
+.cmn-out-btn:active {
+  filter: brightness(0.8);
+}
+
+.cmn-out-btn:focus, .cmn-btn:hover {
+  color: var(--n0) !important;
+}
+
+.cmn-out-btn:focus span, .cmn-out-btn:hover span {
+  color: var(--n0) !important;
+}
+
+.cmn-out-btn:focus::before, .cmn-out-btn:hover::before {
+  background-color: var(--p1);
+}
+.cmn-out-btn:focus::after, .cmn-out-btn:hover::after {
+  background-color: var(--n1);
+  color:#ffffff;
+}
+
 .cmn-btn::after, .cmn-btn::before {
   content: "";
   position: absolute;
