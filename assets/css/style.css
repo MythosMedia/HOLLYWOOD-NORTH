@@ -10743,6 +10743,20 @@ iframe {
   color: #5f9be3;
 }
 
+.outline-btn{
+  font-weight:bold;
+  color:#5f9be3;
+  z-index: 555; 
+  border: 1px solid #5f9be3; 
+  padding: 10px;
+  border-radius: 100px;
+}
+
+.outline-btn:hover{
+  color: white ;
+  background-color: #000000;
+}
+
 .calendly-btn{
   font-weight:bold;
   color:#5f9be3;
@@ -10752,7 +10766,7 @@ iframe {
   border-radius: 100px;
 }
 .calendly-btn:hover{
-  background-color: #5f9be3;
+  background-color: #000;
   color: white !important;
 }
 #post-content span{

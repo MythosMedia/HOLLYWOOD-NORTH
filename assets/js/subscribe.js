@@ -37,9 +37,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   subscribeForms.forEach(form => {
     const emailInput = form.querySelector('[name="email"]');
+    const submitButton = form.querySelector('button[type="submit"]');
 
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
+
+      if (form.dataset.submitting === 'true') return;
+
+      form.dataset.submitting = 'true';
+      submitButton.disabled = true;
 
       try {
         const response = await fetch(form.action, {
@@ -60,8 +66,11 @@ document.addEventListener('DOMContentLoaded', () => {
           showToast(error, 'error');
         }
       } catch (err) {
-        showToast('❌ Network error.', 'error');
         console.error('Subscription error:', err);
+        showToast('❌ Network error.', 'error');
+      } finally {
+        form.dataset.submitting = 'false';
+        submitButton.disabled = false;
       }
     });
   });
