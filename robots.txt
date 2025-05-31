@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://hollywoodnorth.com/sitemap.xml
