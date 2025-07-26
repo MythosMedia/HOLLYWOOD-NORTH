@@ -88,9 +88,13 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P8CQXWQC" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
 
+    <!-- Klaviyo for tracking -->
+
+    <script type="text/javascript" async="" src="https://static.klaviyo.com/onsite/js/RUfJzx/klaviyo.js"></script>
+
     <!-- Styles & Other Scripts -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <script src="/assets/js/subscribe.js" defer ></script>
+    <script src="/assets/js/subscribe.js" defer></script>
 </head>
 
 
@@ -657,41 +661,41 @@ text-align: center;
                                             <p style="margin-top: 10px;">Thank you for registering!</p>
                                         </div>
                                         <script>
-                                            document.getElementById("courseForm").addEventListener("submit", function(e) {
+                                            document.getElementById("courseForm").addEventListener("submit", function (e) {
                                                 e.preventDefault();
-                                            
+
                                                 const form = e.target;
                                                 const formData = new FormData(form);
-                                            
+
                                                 fetch("course-form.php", {
                                                     method: "POST",
                                                     body: formData
                                                 })
-                                                .then(res => res.text())
-                                                .then(data => {
-                                                    if (data.trim() === "success") {
-                                                        // Show modal
-                                                        const modal = document.getElementById("successModal");
-                                                        modal.style.display = "block";
-                                            
-                                                        // Reset form
-                                                        form.reset();
-                                            
-                                                        // Auto-close after 5 seconds
-                                                        setTimeout(() => {
-                                                            modal.style.display = "none";
-                                                        }, 5000);
-                                                    } else {
-                                                        alert("Something went wrong. Please try again.");
-                                                    }
-                                                })
-                                                .catch(error => {
-                                                    console.error("Error:", error);
-                                                    alert("There was a network error. Please try again.");
-                                                });
+                                                    .then(res => res.text())
+                                                    .then(data => {
+                                                        if (data.trim() === "success") {
+                                                            // Show modal
+                                                            const modal = document.getElementById("successModal");
+                                                            modal.style.display = "block";
+
+                                                            // Reset form
+                                                            form.reset();
+
+                                                            // Auto-close after 5 seconds
+                                                            setTimeout(() => {
+                                                                modal.style.display = "none";
+                                                            }, 5000);
+                                                        } else {
+                                                            alert("Something went wrong. Please try again.");
+                                                        }
+                                                    })
+                                                    .catch(error => {
+                                                        console.error("Error:", error);
+                                                        alert("There was a network error. Please try again.");
+                                                    });
                                             });
-                                            </script>
-                                            
+                                        </script>
+
 
 
 
@@ -941,12 +945,13 @@ text-align: center;
                             <p class="n700-color mb-6 mb-xl-10">
                                 Subscribe to Our Newsletter for the Latest Updates
                             </p>
-                               <form method="POST" action="https://hnsinstitute.com/subscribe" data-subscribe-form class="d-flex align-items-center">
+                            <form method="POST" action="https://hnsinstitute.com/subscribe" data-subscribe-form
+                                class="d-flex align-items-center">
                                 <input type="email" name="email" placeholder="Enter Email..." required>
                                 <button type="submit" class="d-center btn__v4">
-                                  <span><i class="ti ti-send n0-color"></i></span>
+                                    <span><i class="ti ti-send n0-color"></i></span>
                                 </button>
-                              </form>
+                            </form>
                             <div class="subscrib__check d-flex justify-content-center">
                                 <label class="checkbox-single gap-2 gap-xl-3 d-flex align-items-center">
                                     <span class="checkbox-area d-center">
@@ -1109,14 +1114,25 @@ text-align: center;
         </div>
     </footer>
     <!-- footer end -->
-
+    <script>
+        var item = {
+            "ProductName": "Intro to audio engineering",
+            "ProductID": 1,
+            "Categories": "Intro",
+            "ImageURL": "https://res.cloudinary.com/df2fe2yzk/image/upload/v1735758445/Hollywood_north_images-14_bn3zig.webp",
+            "URL": "https://hollywoodnorth.com/Intro-to-Audio-Engineering.html",
+            "Price": "850 CAD",
+        };
+        klaviyo.track("Viewed Product", formData);
+    </script>
 
     <!-- ==== js dependencies start ==== -->
     <script src="assets/js/plugins/plugins.js"></script>
     <script src="assets/js/plugins/plugin-custom.js"></script>
     <script src="assets/js/apexcharts.js"></script>
     <script src="assets/js/plugins/aos.js"></script>
-    <script src="assets/js/main.js"></script><div id="toast-container" style="position: fixed; top: 20px; right: 20px; z-index: 9999;"></div>
+    <script src="assets/js/main.js"></script>
+    <div id="toast-container" style="position: fixed; top: 20px; right: 20px; z-index: 9999;"></div>
 
 
 </body>

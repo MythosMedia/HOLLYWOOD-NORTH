@@ -120,10 +120,14 @@
     }
     </script>
 
+    <!-- Klaviyo for tracking -->
+
+    <script type="text/javascript" async="" src="https://static.klaviyo.com/onsite/js/RUfJzx/klaviyo.js"></script>
+
     <!-- Styles & Other Scripts -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <script src="/assets/js/subscribe.js" defer ></script>
-    <script src="/assets/js/subscribe.js" defer ></script>
+    <script src="/assets/js/subscribe.js" defer></script>
+    <script src="/assets/js/subscribe.js" defer></script>
 </head>
 
 
@@ -477,7 +481,7 @@
                                     <div class="text-box mb-xxl-8 mb-7">
                                         <h3 class="head mb-xxl-4 mb-3">
                                             Required Hardware
-                                        </h3>
+                                        </h3>,
                                         <ul class="fs-seven">
                                             <li class="n700-color">
                                                 <b>MacBook Pro : </b>A reliable, powerful computer is essential for
@@ -559,72 +563,67 @@
                         </div>
 
                         <div
-                        class="n0-bg radius16 cus-border border py-xxl-8 py-xl-6 py-4 px-xxl-8 px-xl-6 px-4 mb-xxl-10 mb-xl-8 mb-6">
-                        <h5 class="n700-color bb-704 pb-xxl-6 pb-5 mb-xxl-6 mb-5">
-                            Contact us to Enrol Now
-                        </h5>
-                        <form id="courseForm" action="course-form.php" method="POST" class="writere-v1">
+                            class="n0-bg radius16 cus-border border py-xxl-8 py-xl-6 py-4 px-xxl-8 px-xl-6 px-4 mb-xxl-10 mb-xl-8 mb-6">
+                            <h5 class="n700-color bb-704 pb-xxl-6 pb-5 mb-xxl-6 mb-5">
+                                Contact us to Enrol Now
+                            </h5>
+                            <form id="courseForm" action="course-form.php" method="POST" class="writere-v1">
 
-                            <div class="row g-4">
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="form-cmn">
-                                        <label for="name"
-                                            class="fs-six fw_500 n700-color mb-xxl-3 mb-2">Name</label>
-                                        <input type="text" name="name" placeholder="Enter Your Name..."
-                                            id="name" class="n20-bg" required>
+                                <div class="row g-4">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-cmn">
+                                            <label for="name"
+                                                class="fs-six fw_500 n700-color mb-xxl-3 mb-2">Name</label>
+                                            <input type="text" name="name" placeholder="Enter Your Name..." id="name"
+                                                class="n20-bg" required>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="form-cmn">
-                                        <label for="em"
-                                            class="fs-six fw_500 n700-color mb-xxl-3 mb-2">Email</label>
-                                        <input name="email" type="email"
-                                            placeholder="Enter Your Email..." id="em" class="n20-bg"
-                                            required>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-cmn">
+                                            <label for="em" class="fs-six fw_500 n700-color mb-xxl-3 mb-2">Email</label>
+                                            <input name="email" type="email" placeholder="Enter Your Email..." id="em"
+                                                class="n20-bg" required>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-12 col-md-6 col-sm-6">
-                                    <div class="form-cmn">
-                                        <label for="number"
-                                            class="fs-six fw_500 n700-color mb-xxl-3 mb-2">Phone</label>
-                                        <input name="phone" type="number"
-                                            placeholder="Enter Your Number..." id="number"
-                                            class="n20-bg" required>
+                                    <div class="col-lg-12 col-md-6 col-sm-6">
+                                        <div class="form-cmn">
+                                            <label for="number"
+                                                class="fs-six fw_500 n700-color mb-xxl-3 mb-2">Phone</label>
+                                            <input name="phone" type="number" placeholder="Enter Your Number..."
+                                                id="number" class="n20-bg" required>
+                                        </div>
                                     </div>
-                                </div>
-                                <!-- ✅ Non-editable Course Field -->
-                                <div class="col-lg-12">
-                                    <div class="form-cmn mb-xxl-4 mb-3">
-                                        <label for="course"
-                                            class="fs-six fw_500 n700-color mb-xxl-3 mb-2">Course</label>
-                                        <input type="text" name="course"
-                                            value="Advanced Audio Post-Production" id="course"
-                                            class="n20-bg" readonly>
+                                    <!-- ✅ Non-editable Course Field -->
+                                    <div class="col-lg-12">
+                                        <div class="form-cmn mb-xxl-4 mb-3">
+                                            <label for="course"
+                                                class="fs-six fw_500 n700-color mb-xxl-3 mb-2">Course</label>
+                                            <input type="text" name="course" value="Advanced Audio Post-Production"
+                                                id="course" class="n20-bg" readonly>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="form-cmn mb-xxl-4 mb-3">
-                                        <label for="rev"
-                                            class="fs-six fw_500 n700-color mb-xxl-3 mb-2">Message</label>
-                                        <textarea name="message" id="rev" rows="4"
-                                            placeholder="Enter Your Message..." class="n20-bg"
-                                            required></textarea>
+                                    <div class="col-lg-12">
+                                        <div class="form-cmn mb-xxl-4 mb-3">
+                                            <label for="rev"
+                                                class="fs-six fw_500 n700-color mb-xxl-3 mb-2">Message</label>
+                                            <textarea name="message" id="rev" rows="4"
+                                                placeholder="Enter Your Message..." class="n20-bg" required></textarea>
+                                        </div>
                                     </div>
-                                </div>
 
 
 
-                                <div class="col-lg-12">
-                                    <button type="submit"
-                                        class="cmn-btn fw_600 justify-content-center d-flex align-items-center gap-2 py-3 px-xl-6 px-5 n700-color">
-                                        <span>Send Message</span>
-                                        <i class="ti ti-arrow-up-right fs-six"></i>
-                                    </button>
+                                    <div class="col-lg-12">
+                                        <button type="submit"
+                                            class="cmn-btn fw_600 justify-content-center d-flex align-items-center gap-2 py-3 px-xl-6 px-5 n700-color">
+                                            <span>Send Message</span>
+                                            <i class="ti ti-arrow-up-right fs-six"></i>
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
-                        <!-- ✅ Success Modal -->
-                        <div id="successModal" style="
+                            </form>
+                            <!-- ✅ Success Modal -->
+                            <div id="successModal" style="
 display: none;
 position: fixed;
 top: 30%;
@@ -639,49 +638,47 @@ z-index: 9999;
 text-align: center;
 ">
 
-                            <h5 style="margin: 0; font-weight: 600;">✅ Message Sent Successfully</h5>
-                            <p style="margin-top: 10px;">Thank you for registering!</p>
-                        </div>
-                        <script>
-                            document.getElementById("courseForm").addEventListener("submit", function(e) {
-                                e.preventDefault();
-                            
-                                const form = e.target;
-                                const formData = new FormData(form);
-                            
-                                fetch("course-form.php", {
-                                    method: "POST",
-                                    body: formData
-                                })
-                                .then(res => res.text())
-                                .then(data => {
-                                    if (data.trim() === "success") {
-                                        // Show modal
-                                        const modal = document.getElementById("successModal");
-                                        modal.style.display = "block";
-                            
-                                        // Reset form
-                                        form.reset();
-                            
-                                        // Auto-close after 5 seconds
-                                        setTimeout(() => {
-                                            modal.style.display = "none";
-                                        }, 5000);
-                                    } else {
-                                        alert("Something went wrong. Please try again.");
-                                    }
-                                })
-                                .catch(error => {
-                                    console.error("Error:", error);
-                                    alert("There was a network error. Please try again.");
+                                <h5 style="margin: 0; font-weight: 600;">✅ Message Sent Successfully</h5>
+                                <p style="margin-top: 10px;">Thank you for registering!</p>
+                            </div>
+                            <script>
+                                document.getElementById("courseForm").addEventListener("submit", function (e) {
+                                    e.preventDefault();
+
+                                    const form = e.target;
+                                    const formData = new FormData(form);
+
+                                    fetch("course-form.php", {
+                                        method: "POST",
+                                        body: formData
+                                    })
+                                        .then(res => res.text())
+                                        .then(data => {
+                                            if (data.trim() === "success") {
+                                                // Show modal
+                                                const modal = document.getElementById("successModal");
+                                                modal.style.display = "block";
+
+                                                // Reset form
+                                                form.reset();
+
+                                                // Auto-close after 5 seconds
+                                                setTimeout(() => {
+                                                    modal.style.display = "none";
+                                                }, 5000);
+                                            } else {
+                                                alert("Something went wrong. Please try again.");
+                                            }
+                                        })
+                                        .catch(error => {
+                                            console.error("Error:", error);
+                                            alert("There was a network error. Please try again.");
+                                        });
                                 });
-                            });
                             </script>
-                            
 
 
-
-                    </div>
+                        </div>
 
 
                         <!--faq-->
@@ -1018,12 +1015,13 @@ text-align: center;
                             <p class="n700-color mb-6 mb-xl-10">
                                 Subscribe to Our Newsletter for the Latest Updates
                             </p>
-                               <form method="POST" action="https://hnsinstitute.com/subscribe" data-subscribe-form class="d-flex align-items-center">
+                            <form method="POST" action="https://hnsinstitute.com/subscribe" data-subscribe-form
+                                class="d-flex align-items-center">
                                 <input type="email" name="email" placeholder="Enter Email..." required>
                                 <button type="submit" class="d-center btn__v4">
-                                  <span><i class="ti ti-send n0-color"></i></span>
+                                    <span><i class="ti ti-send n0-color"></i></span>
                                 </button>
-                              </form>
+                            </form>
                             <div class="subscrib__check d-flex justify-content-center">
                                 <label class="checkbox-single gap-2 gap-xl-3 d-flex align-items-center">
                                     <span class="checkbox-area d-center">
@@ -1186,14 +1184,24 @@ text-align: center;
         </div>
     </footer>
     <!-- footer end -->
-
-
+    <script>
+        var item = {
+            "ProductName": "Advanced Audio Post Production",
+            "ProductID": 6,
+            "Categories": "Advance",
+            "ImageURL": "https://res.cloudinary.com/df2fe2yzk/image/upload/v1739992056/Hollywood_north_photos-18_edtxam.webp",
+            "URL": "https://hollywoodnorth.com/Advanced-Audio-Post-Production.html",
+            "Price": "$1050",
+        };
+        klaviyo.track("Viewed Product", formData);
+    </script>
     <!-- ==== js dependencies start ==== -->
     <script src="assets/js/plugins/plugins.js"></script>
     <script src="assets/js/plugins/plugin-custom.js"></script>
     <script src="assets/js/apexcharts.js"></script>
     <script src="assets/js/plugins/aos.js"></script>
-    <script src="assets/js/main.js"></script><div id="toast-container" style="position: fixed; top: 20px; right: 20px; z-index: 9999;"></div>
+    <script src="assets/js/main.js"></script>
+    <div id="toast-container" style="position: fixed; top: 20px; right: 20px; z-index: 9999;"></div>
 
 
 </body>
