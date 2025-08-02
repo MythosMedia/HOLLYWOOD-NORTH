@@ -41,6 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
+      klaviyo.track("email list",{
+        email: emailInput.value
+      });
 
       if (form.dataset.submitting === 'true') return;
 
