@@ -1,79 +1,79 @@
-function showToast(message, type = 'success') {
-  const container = document.getElementById('toast-container');
+function showToast(message, type = "success") {
+  const container = document.getElementById("toast-container");
   if (!container) return;
 
-  const toast = document.createElement('div');
+  const toast = document.createElement("div");
   toast.textContent = message;
 
-  toast.style.backgroundColor = type === 'success' ? '#4BB543' : '#ff4d4f';
-  toast.style.color = '#fff';
-  toast.style.padding = '12px 20px';
-  toast.style.marginBottom = '10px';
-  toast.style.borderRadius = '8px';
-  toast.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
-  toast.style.fontWeight = '500';
-  toast.style.opacity = '0';
-  toast.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-  toast.style.transform = 'translateY(-10px)';
+  toast.style.backgroundColor = type === "success" ? "#4BB543" : "#ff4d4f";
+  toast.style.color = "#fff";
+  toast.style.padding = "12px 20px";
+  toast.style.marginBottom = "10px";
+  toast.style.borderRadius = "8px";
+  toast.style.boxShadow = "0 4px 12px rgba(0,0,0,0.1)";
+  toast.style.fontWeight = "500";
+  toast.style.opacity = "0";
+  toast.style.transition = "opacity 0.4s ease, transform 0.4s ease";
+  toast.style.transform = "translateY(-10px)";
 
   container.appendChild(toast);
 
   setTimeout(() => {
-    toast.style.opacity = '1';
-    toast.style.transform = 'translateY(0)';
+    toast.style.opacity = "1";
+    toast.style.transform = "translateY(0)";
   }, 100);
 
   setTimeout(() => {
-    toast.style.opacity = '0';
-    toast.style.transform = 'translateY(-10px)';
+    toast.style.opacity = "0";
+    toast.style.transform = "translateY(-10px)";
     setTimeout(() => {
       container.removeChild(toast);
     }, 400);
   }, 4000);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const subscribeForms = document.querySelectorAll('[data-subscribe-form]');
+document.addEventListener("DOMContentLoaded", () => {
+  const subscribeForms = document.querySelectorAll("[data-subscribe-form]");
 
-  subscribeForms.forEach(form => {
+  subscribeForms.forEach((form) => {
     const emailInput = form.querySelector('[name="email"]');
     const submitButton = form.querySelector('button[type="submit"]');
 
-    form.addEventListener('submit', async function (e) {
+    form.addEventListener("submit", async function (e) {
       e.preventDefault();
 
       const email = emailInput.value;
 
       // klaviyo.track("email list", { email });
 
-      if (form.dataset.submitting === 'true') return;
+      if (form.dataset.submitting === "true") return;
 
-      form.dataset.submitting = 'true';
+      form.dataset.submitting = "true";
       submitButton.disabled = true;
 
       try {
-        const response = await fetch('/klaviyo-subscribe.php', {
-          method: 'POST',
+        const response = await fetch("/klaviyo-subscribe.php", {
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json",
           },
-          body: JSON.stringify({ email })
+          body: JSON.stringify({ email }),
         });
 
         const result = await response.json();
 
         if (response.ok && result.success) {
-          showToast('✅ Subscribed to both lists!', 'success');
+          showToast("✅ Subscribed successfully!", "success");
           form.reset();
         } else {
-          const error = result?.error || '❌ Failed to subscribe.';
-          showToast(error, 'error');
+          const error = result?.error || "❌ Failed to subscribe.";
+          showToast(error, "error");
         }
       } catch (err) {
-        console.error('Subscription error:', err);
-        showToast('❌ Network error.', 'error');
+        console.error("Subscription error:", err);
+        showToast("❌ Network error.", "error");
       } finally {
-        form.dataset.submitting = 'false';
+        form.dataset.submitting = "false";
         submitButton.disabled = false;
       }
     });
