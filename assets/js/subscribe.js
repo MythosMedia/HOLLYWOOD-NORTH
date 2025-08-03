@@ -41,9 +41,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
-      klaviyo.track("email list",{
-        email: emailInput.value
-      });
+
+      const email = emailInput.value;
+
+      // klaviyo.track("email list", { email });
 
       if (form.dataset.submitting === 'true') return;
 
@@ -51,18 +52,18 @@ document.addEventListener('DOMContentLoaded', () => {
       submitButton.disabled = true;
 
       try {
-        const response = await fetch(form.action, {
+        const response = await fetch('/klaviyo-subscribe.php', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ email: emailInput.value })
+          body: JSON.stringify({ email })
         });
 
         const result = await response.json();
 
-        if (response.ok) {
-          showToast('✅ Subscribed successfully!', 'success');
+        if (response.ok && result.success) {
+          showToast('✅ Subscribed to both lists!', 'success');
           form.reset();
         } else {
           const error = result?.error || '❌ Failed to subscribe.';
