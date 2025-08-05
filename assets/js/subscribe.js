@@ -37,14 +37,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   subscribeForms.forEach((form) => {
     const emailInput = form.querySelector('[name="email"]');
-    const submitButton = form.querySelector('button[type="submit"]');
+    const submitButton = form.querySelector("button[type='submit']");
+    const listIds = form.dataset?.lists?.split(",").map((id) => id.trim()) || [];
 
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
 
       const email = emailInput.value;
-
-      // klaviyo.track("email list", { email });
 
       if (form.dataset.submitting === "true") return;
 
@@ -57,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ email }),
+          body: JSON.stringify({ email, list_ids: listIds }),
         });
 
         const result = await response.json();
