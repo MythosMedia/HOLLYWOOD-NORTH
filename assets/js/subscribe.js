@@ -38,7 +38,10 @@ document.addEventListener("DOMContentLoaded", () => {
   subscribeForms.forEach((form) => {
     const emailInput = form.querySelector('[name="email"]');
     const submitButton = form.querySelector("button[type='submit']");
-    const listIds = form.dataset?.lists?.split(",").map((id) => id.trim()) || [];
+    const listIds = form.dataset?.lists?.split(",").map((id) => id.trim()) || [
+      "RdcFDS",
+      "REn35d",
+    ];
 
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
